@@ -3,6 +3,7 @@ nav {
     display: flex;
     justify-content: center;
 }
+
 nav .container-menu{
     position: absolute;
     display: flex;
@@ -14,13 +15,33 @@ nav .container-menu{
 nav .logo{
     background: var(--black-950);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: -2rem;
     width: 15rem;
-    height: 8rem;
+    height: 10rem;
     color: var(--color-white);
     border-radius: 0rem 0rem 2.5rem 2.5rem;
+}
+
+.logo .img img{
+    width: 7rem;
+    filter: drop-shadow(0rem 0rem 0.2rem var(--color-white));
+}
+
+.logo .texto{
+   margin-top: -3.5rem;
+}
+
+.logo .texto .logo-l{
+    font-family: "Parisienne", cursive;
+    font-size: 3rem;
+}
+
+.logo .texto .logo-cuerpo{
+    font-family: "Jaro", sans-serif;
+    font-size: 1.7rem;
 }
 
 .menu ul{
@@ -38,3 +59,4 @@ nav .logo{
     font-weight: 500;
     font-size: 1.3rem;
 }
+
