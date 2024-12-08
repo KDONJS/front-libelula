@@ -1,0 +1,9 @@
+.hero{
+    width: 100%;
+    height: 55rem;
+    background: linear-gradient(#14274ad2, rgba(48, 44, 58, 0.521)), 
+              url("../../../../assets/img/Portada.jpg");
+    background-size:cover;
+    background-position:bottom;
+    background-repeat: no-repeat;
+}

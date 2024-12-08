@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    /* Blue Zodiac */
+    --blue-zodiac-50: #eff8ff;
+    --blue-zodiac-100: #dbeefe;
+    --blue-zodiac-200: #bfe3fe;
+    --blue-zodiac-300: #93d2fd;
+    --blue-zodiac-400: #5fb8fb;
+    --blue-zodiac-500: #3a99f7;
+    --blue-zodiac-600: #247bec;
+    --blue-zodiac-700: #1c65d9;
+    --blue-zodiac-800: #1d52b0;
+    --blue-zodiac-900: #1e478a;
+    --blue-zodiac-950: #14274a;
+  
+    /* Harvest Gold */
+    --harvest-gold-50: #fcf9f0;
+    --harvest-gold-100: #f8f1dc;
+    --harvest-gold-200: #f0e1b8;
+    --harvest-gold-300: #e6ca8b;
+    --harvest-gold-400: #e0b973;
+    --harvest-gold-500: #d3973c;
+    --harvest-gold-600: #c58031;
+    --harvest-gold-700: #a3652b;
+    --harvest-gold-800: #835029;
+    --harvest-gold-900: #6a4324;
+    --harvest-gold-950: #392211;
+  
+    /* Black */
+    --black-50: #f6f6f6;
+    --black-100: #e7e7e7;
+    --black-200: #d1d1d1;
+    --black-300: #b0b0b0;
+    --black-400: #888888;
+    --black-500: #6d6d6d;
+    --black-600: #5d5d5d;
+    --black-700: #4f4f4f;
+    --black-800: #454545;
+    --black-900: #3d3d3d;
+    --black-950: #000000;
+  
+    /* Ebony */
+    --ebony-50: #e4f0ff;
+    --ebony-100: #cfe2ff;
+    --ebony-200: #a8c8ff;
+    --ebony-300: #74a2ff;
+    --ebony-400: #3e69ff;
+    --ebony-500: #1331ff;
+    --ebony-600: #001aff;
+    --ebony-700: #001aff;
+    --ebony-800: #0017e4;
+    --ebony-900: #000cb0;
+    --ebony-950: #000119;
+
+    --color-white: #ffffff;
+  }
+  
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Poppins", serif;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}

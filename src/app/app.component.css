@@ -1,0 +1,15 @@
+.contruccion{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contruccion span{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--blue-zodiac-950);
+}
