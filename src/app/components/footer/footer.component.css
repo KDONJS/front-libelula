@@ -1,0 +1,84 @@
+footer{
+    background: var(--blue-zodiac-950);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: var(--color-white);
+}
+
+.container-footer{
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 90rem;
+    gap: 2rem;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+ul li{
+    list-style: none;
+}
+
+.redes li{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.container-footer .item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.boletin{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input::placeholder{
+    color: var(--color-white);
+}
+
+.boletin input{
+    border: solid 0.2rem var(--harvest-gold-600);
+    padding: 0.5rem 2rem;
+    background: var(--blue-zodiac-950);
+    color: var(--color-white);
+    border-radius: 0.3rem 0rem 0rem 0.3rem;
+}
+
+.boletin button{
+    background: var(--harvest-gold-600);
+    border: solid 0.2rem var(--harvest-gold-600);
+    padding: 0.5rem;
+    border-radius: 0rem 0.3rem 0.3rem 0rem;
+    color: var(--color-white);
+}
+
+.container-footer .marca .logo{
+    width: max-content;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.container-footer .marca .logo span{
+    font-size: 2rem;
+}
+
+.container-footer .item .logo , .direccion, .marca{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .container-footer{
+        flex-direction: column;
+    }
+}

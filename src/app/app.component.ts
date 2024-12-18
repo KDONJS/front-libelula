@@ -18,4 +18,8 @@ import { HomeComponent } from "./components/home/home.component";
 })
 export class AppComponent {
   title = 'libelula-hotel-front';
+  hero = {
+    "mensaje": "Reserva tu estancia y disfruta del lujo redefinido a las tarifas más asequibles.",
+    "titulo": "Bienvenidos"
+  }
 }

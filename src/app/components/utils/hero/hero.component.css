@@ -6,4 +6,119 @@
     background-size:cover;
     background-position:bottom;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    color: var(--color-white);
 }
+
+.hero .texto {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero .texto .item-hero-1{
+    font-size: 2rem;
+}
+
+.hero .texto .item-hero-2{
+    font-size: 7rem;
+}
+
+.hero .texto .item-hero-3 {
+    margin-top: -3rem;
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.hero .texto .item-hero-4 {
+    font-size: 1.2rem;
+}
+
+.hero .boton a{
+    border: none;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 0.7rem;
+    background: var(--harvest-gold-600);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.hero .indicador{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .indicador span{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.hero .indicador i{
+    font-size: 1.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+      width: 100%;
+      height: auto;
+      background-position: center;
+    }
+  
+    .hero .texto {
+      width: 80%;
+      gap: 1.5rem;
+    }
+  
+    .hero .texto .item-hero-1 {
+      font-size: 1.2rem;
+    }
+  
+    .hero .texto .item-hero-2 {
+      font-size: 3rem;
+    }
+  
+    .hero .texto .item-hero-3 {
+      margin-top: -1.5rem;
+      font-size: 2.5rem;
+    }
+  
+    .hero .texto .item-hero-4 {
+      font-size: 0.5rem;
+    }
+    .hero .boton{
+        width: 80%;
+    }
+  
+    .hero .boton a {
+      font-size: 0.9rem;
+    }
+  
+    .hero .indicador {
+      width: 80%;
+      margin-top: 2rem;
+    }
+  
+    .hero .indicador span {
+      font-size: 0.9rem;
+    }
+  
+    .hero .indicador i {
+      font-size: 1.2rem;
+    }
+  }

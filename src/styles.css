@@ -68,3 +68,16 @@
 html::-webkit-scrollbar {
   display: none;
 }
+
+.mi-clase-personalizada .mat-body,
+.mi-clase-personalizada .mat-body-2,
+.mi-clase-personalizada .mat-typography {
+  all: unset;
+}
+
+.mat-body, .mat-body-2, .mat-typography {
+  all: unset;
+}
+
+html, body { height: 100%; }
+body { margin: 0;}

@@ -1,62 +1,187 @@
+/* NAV CONTENEDOR PRINCIPAL */
 nav {
-    width: 100vw;
     display: flex;
     justify-content: center;
-}
-
-nav .container-menu{
     position: absolute;
-    display: flex;
-    width: 95rem;
-    justify-content: space-between;
-    padding-top: 2rem;
+    width: 100vw;                
+    height: 4rem;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-nav .logo{
-    background: var(--black-950);
+/* CONTENEDOR GENERAL */
+.container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
-    margin-top: -2rem;
-    width: 15rem;
-    height: 10rem;
+    height: auto;
+    padding: 2rem;
     color: var(--color-white);
-    border-radius: 0rem 0rem 2.5rem 2.5rem;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.logo .img img{
-    width: 7rem;
-    filter: drop-shadow(0rem 0rem 0.2rem var(--color-white));
+/* LOGO */
+.logo a {
+    color: var(--color-black);
+    text-decoration: none;
 }
 
-.logo .texto{
-   margin-top: -3.5rem;
+.logo a .img-logo{
+    width:5rem ;
+    filter: drop-shadow(0rem 0rem 0.3rem var(--color-100));
 }
 
-.logo .texto .logo-l{
-    font-family: "Parisienne", cursive;
-    font-size: 3rem;
-}
-
-.logo .texto .logo-cuerpo{
-    font-family: "Jaro", sans-serif;
-    font-size: 1.7rem;
-}
-
-.menu ul{
+.menu-2 ul{
     display: flex;
-    gap: 4rem;
+    gap: 3.5rem;
 }
 
-.menu ul .item-menu{
+.menu-2 ul li{
     list-style: none;
 }
 
-.menu ul .item-menu a{
-    color: var(--color-white);
-    text-decoration: none;
+.menu-2 ul li a{
     font-weight: 500;
-    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--color-black);
 }
 
+/* MENÚ GENERAL */
+.menu {
+    display: flex; /* Por defecto visible en escritorio */
+    gap: 3.5rem;
+}
+
+.menu ul {
+    display: flex;
+    gap: 3.5rem;
+}
+
+.menu ul li {
+    list-style: none;
+}
+
+.menu ul li a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* MENÚ EN DISPOSITIVOS MÓVILES */
+.menu {
+    display: none; /* Oculto en móviles inicialmente */
+    position: fixed;
+    top: 0;
+    right: -100%; /* Fuera de la pantalla inicialmente */
+    height: 100vh;
+    width: 70%; /* Ancho del menú móvil */
+    background-color: var(--blue-zodiac-900);
+    flex-direction: column;
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+    z-index: 1002; /* Por encima del overlay */
+}
+
+.menu.show {
+    right: 0; /* Cuando se despliega */
+    opacity: 1;
+}
+
+/* OPCIONES EN MENÚ MÓVIL */
+.menu ul {
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.menu ul li a {
+    font-size: 1.2rem;
+}
+
+/* BOTÓN DE CERRAR EN MENÚ MÓVIL */
+.menu .close-button {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-white);
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+/* OVERLAY PARA MÓVILES */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1001; /* Menor que el menú */
+    pointer-events: auto; /* Habilitar clics para cerrar */
+}
+
+/* BOTÓN HAMBURGER */
+.hamburger {
+    display: none; /* Ocultar en escritorio */
+    font-size: 2rem;
+    color: var(--color-800);
+    cursor: pointer;
+}
+
+/* ESTILOS PARA TABLETAS */
+@media (max-width: 1024px) {
+    .container {
+        gap: 1rem;
+        height: auto;
+    }
+
+    .menu-2 ul{
+        gap: 1.5rem;
+    }
+
+    .menu {
+        display: none; /* Ocultar el menú en móviles y mostrar al desplegar */
+    }
+
+    .menu ul {
+        gap: 2rem;
+    }
+
+    .menu ul li{
+        padding: 0.5rem;
+        border-bottom:  1px solid var(--color-300);
+    }
+
+    .menu ul li a{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* ESTILOS PARA MÓVILES */
+@media (max-width: 768px) {
+
+    .menu-2{
+        display: none;
+    }
+
+    .menu {
+        display: none; /* Ocultar por defecto */
+    }
+
+    .menu.show {
+        display: flex; /* Mostrar al hacer clic en el botón */
+    }
+
+    .container {
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: block; /* Mostrar el botón en móviles */
+    }
+
+    .botones {
+        display: none; /* Ocultar botones adicionales en móviles */
+    }
+}
