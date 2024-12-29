@@ -93,4 +93,18 @@ input::placeholder{
     .marca, .redes, .boletin{
         align-items: center;
     }
+
+    .boletin {
+        width: 100%;
+        flex-direction: row;
+    }
+    
+    .boletin input{
+        width: 50%;
+    }
+    
+    .boletin button{
+        width: 20%;
+    }
+    
 }
