@@ -81,4 +81,16 @@ input::placeholder{
     .container-footer{
         flex-direction: column;
     }
+    .direccion, .menu{
+        text-align: center;
+    }
+
+    .direccion, .menu, .redes {
+        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.26);
+        padding-bottom: 1rem;
+    }
+    
+    .marca, .redes, .boletin{
+        align-items: center;
+    }
 }
