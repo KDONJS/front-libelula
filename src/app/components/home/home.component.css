@@ -53,8 +53,12 @@
 .message .mensajeInicio {
     font-size: 2.5rem;
     font-weight: 500;
+    color: var(--blue-zodiac-950);
 }
 
+.mat-tab {
+    color: var(--harvest-gold-500);
+}
 
 @media (max-width: 768px) {
 
