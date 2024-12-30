@@ -78,6 +78,8 @@
       width: 100%;
       height: auto;
       background-position: center;
+      padding-top: 8rem;
+      padding-bottom: 3rem;
     }
   
     .hero .texto {
