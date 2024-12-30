@@ -31,6 +31,7 @@
     background: var(--harvest-gold-500);
     padding: 4rem 3rem;
     border-radius: 1.5rem 0 0 1.5rem;
+    text-align: justify;
 }
 
 .container-tab .img{
