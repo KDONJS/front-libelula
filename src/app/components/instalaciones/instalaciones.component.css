@@ -1,0 +1,84 @@
+.container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .contenido {
+    display: flex;
+    flex-direction: column;
+    width: 70rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue-zodiac-950);
+}
+
+.container .contenido h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.container .contenido p {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.instalaciones {
+    width: 70rem;
+    padding: 2rem;
+}
+
+.instalacion {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.instalacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.instalacion .texto-overlay {
+    position: absolute;
+    bottom: 10%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.instalacion .texto-overlay .texto {
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/*seccion de mobil*/
+@media (max-width: 768px) {
+  .container .contenido {
+    width: 90%;
+  }
+
+    .container .contenido h2 {
+        font-size: 2em;
+    }
+
+    .container .contenido p {
+        font-size: 1em;
+    }
+
+  .instalaciones {
+     width: 90%;
+  }
+}

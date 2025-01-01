@@ -1,7 +1,7 @@
 <nav>
     <div class="container">
         <div class="logo">
-            <a routerLink="/home" fragment="home">
+            <a routerLink="/home">
                 <img class="img-logo" src="assets/img/libelula.png" alt="">
             </a>
         </div>
@@ -11,10 +11,10 @@
         <div class="menu" [class.show]="menuVisible" [@menuAnimation]="menuState">
             <button class="close-button" (click)="closeMenu()">&#10005;</button>
             <ul>
-                <li><a routerLink="/home" fragment="home" (click)="closeMenu()"> <span>Inicio</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a routerLink="/home" (click)="closeMenu()"> <span>Inicio</span> <i class="fa-solid fa-arrow-right"></i></a></li>
                 <li><a routerLink="/Instalaciones" (click)="closeMenu()"> <span>Instalaciones</span> <i class="fa-solid fa-arrow-right"></i></a></li>
                 <li><a routerLink="/Habitaciones" (click)="closeMenu()"> <span>Habitaciones</span> <i class="fa-solid fa-arrow-right"></i></a></li>
-                <li><a routerLink="Contáctanos" (click)="closeMenu()"> <span>Contáctanos</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a routerLink="Contactanos" (click)="closeMenu()"> <span>Contáctanos</span> <i class="fa-solid fa-arrow-right"></i></a></li>
             </ul>
             <div class="accion">
                 <a href="">Contáctanos</a>
@@ -22,10 +22,10 @@
         </div>
         <div class="menu-2">
             <ul>
-                <li><a routerLink="/home" fragment="home">Inicio</a></li>
+                <li><a routerLink="/home">Inicio</a></li>
                 <li><a routerLink="/Instalaciones" >Instalaciones</a></li>
                 <li><a routerLink="/Habitaciones" >Habitaciones</a></li>
-                <li><a routerLink="Contáctanos" >Contáctanos</a></li>
+                <li><a routerLink="Contactanos" >Contáctanos</a></li>
             </ul>
         </div>
         <!-- Overlay que cubre toda la pantalla -->
