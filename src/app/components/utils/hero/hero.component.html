@@ -1,8 +1,10 @@
 <div class="hero">
     <div class="texto">
-        <span class="item-hero-1">{{ titulo }}</span>
-        <span class="item-hero-2">Libelula</span>
-        <span class="item-hero-3">Hotel</span>
+        <span class="item-hero-1" [ngClass]="titulo === 'Bienvenidos' ? '' : 'clase-activa'">{{ titulo }}</span>
+        @if (titulo === 'Bienvenidos') {
+          <span class="item-hero-2">Libelula</span>
+          <span class="item-hero-3">Hotel</span>
+        }
         <span class="item-hero-4">{{ mensaje }}</span>
     </div>
     <div class="boton">
