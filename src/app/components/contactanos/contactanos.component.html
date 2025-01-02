@@ -16,8 +16,9 @@
       <input type="text" name="direccion" placeholder="Dirección" required>
       <!-- pais select-->
       <select name="pais" id="pais" required>
-        @for (country of countries; track $index) {
-          <option value="{{ country.fifa }}">{{ country.name}}</option>
+        <option value="0">Seleccione un país</option>
+        @for (pais of paises; track $index) {
+          <option value="{{ pais.name }}">{{ pais.name }}</option>
         }
       </select>
     </div>
