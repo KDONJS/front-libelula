@@ -1,1 +1,50 @@
-<p>contactanos works!</p>
+<div class="hero-contac">
+  <span>Contáctanos</span>
+</div>
+<div class="container">
+  <form action="" method="post">
+    <div class="form-group">
+      <!-- Nombre y apellidos -->
+      <input type="text" name="nombre" placeholder="Nombre y apellidos" required>
+      <!-- Motivo -->
+      <input type="text" name="motivo" placeholder="Motivo" required>
+      <!-- Correo -->
+      <input type="email" name="correo" placeholder="Correo" required>
+      <!-- Telefono -->
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+      <!-- Direccion -->
+      <input type="text" name="direccion" placeholder="Dirección" required>
+      <!-- pais select-->
+      <select name="pais" id="pais" required>
+        <option value="0">Seleccione un país</option>
+        <option value="1">Colombia</option>
+        <option value="2">Venezuela</option>
+        <option value="3">Ecuador</option>
+        <option value="4">Perú</option>
+        <option value="5">Chile</option>
+        <option value="6">Argentina</option>
+        <option value="7">Brasil</option>
+        <option value="8">México</option>
+        <option value="9">Estados Unidos</option>
+        <option value="10">Canadá</option>
+      </select>
+    </div>
+    <!-- Mensaje -->
+    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje" required></textarea>
+    <!-- check terminos -->
+    <div class="terminos">
+      <input type="checkbox" name="terminos" id="terminos" required>
+      <label for="terminos">Acepto los términos y condiciones</label>
+    </div>
+    <div class="terminos">
+      <input type="checkbox" name="politicas" id="politicas" required>
+      <label for="terminos">He leído y acepto las Políticas de Protección de Datos Personales.*</label>
+    </div>
+    <div class="terminos">
+      <input type="checkbox" name="publicidad" id="publicidad" required>
+      <label for="terminos">Acepto el envío de publicidad y promociones de Libelula Hotel.</label>
+    </div>
+    <!-- boton enviar -->
+    <input type="submit" value="Enviar">
+  </form>
+</div>
