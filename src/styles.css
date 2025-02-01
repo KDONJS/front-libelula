@@ -16,7 +16,7 @@
     --blue-zodiac-800: #1d52b0;
     --blue-zodiac-900: #1e478a;
     --blue-zodiac-950: #14274a;
-  
+
     /* Harvest Gold */
     --harvest-gold-50: #fcf9f0;
     --harvest-gold-100: #f8f1dc;
@@ -29,7 +29,7 @@
     --harvest-gold-800: #835029;
     --harvest-gold-900: #6a4324;
     --harvest-gold-950: #392211;
-  
+
     /* Black */
     --black-50: #f6f6f6;
     --black-100: #e7e7e7;
@@ -42,7 +42,7 @@
     --black-800: #454545;
     --black-900: #3d3d3d;
     --black-950: #000000;
-  
+
     /* Ebony */
     --ebony-50: #e4f0ff;
     --ebony-100: #cfe2ff;
@@ -58,7 +58,7 @@
 
     --color-white: #ffffff;
   }
-  
+
 *{
     margin: 0px;
     padding: 0px;
