@@ -17,6 +17,7 @@
 
 .texto{
   padding: 1rem;
+  width: 60%;
 }
 
 .texto h3{
@@ -30,7 +31,7 @@
 }
 
 .imagen{
-  width: 100%;
+  width: 40%;
   height: 20rem;
   background-size: cover;
   background-position: center;
@@ -46,8 +47,13 @@
     flex-direction: column;
   }
 
+  .imagen{
+    width: 100%;
+  }
+
   .texto{
     padding: 0.5rem;
+    width: 100%;
   }
 
 }
