@@ -14,7 +14,7 @@ export const routes: Routes = [
       path: 'home', component: HomeComponent,
       children: [
         { path: 'tarifa', component: TarifaComponent },
-        { path: 'hospitalidad', component: HospitalidadComponent },
+        { path: 'Ubicacion', component: HospitalidadComponent },
         { path: 'instalaciones', component: InstalacionesNavComponent },
         { path: '', redirectTo: 'tarifa', pathMatch: 'full' }
       ]
