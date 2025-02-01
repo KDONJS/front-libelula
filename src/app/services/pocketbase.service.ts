@@ -21,4 +21,10 @@ export class PocketbaseService {
 
     return this.http.get(url);
   }
+
+    // Nuevo método para obtener un registro específico por ID
+    getRecordById(collectionName: string, id: string): Observable<any> {
+      const url = `${this.apiUrl}/${collectionName}/records/${id}`;
+      return this.http.get(url);
+    }
 }

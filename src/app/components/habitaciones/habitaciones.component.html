@@ -17,7 +17,7 @@
         <span>{{Habitacion.tipo}}</span>
       </div>
       <div class="acciones">
-        <a class="detalle" href="#"><i class="fa-solid fa-circle-plus"></i>VER DETALLES DE LA HABITACIÓN</a>
+        <a class="detalle" [routerLink]="['detalle', Habitacion.id]"><i class="fa-solid fa-circle-plus"></i>VER DETALLES DE LA HABITACIÓN</a>
         <a class="reserva" href=""><i class="fa-brands fa-whatsapp"></i>Reservar</a>
       </div>
     </div>

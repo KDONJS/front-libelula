@@ -7,6 +7,7 @@ import { NotfoundComponent } from './components/utils/notfound/notfound.componen
 import { TarifaComponent } from './components/home/tarifa/tarifa.component';
 import { HospitalidadComponent } from './components/home/hospitalidad/hospitalidad.component';
 import { InstalacionesNavComponent } from './components/home/instalaciones-nav/instalaciones-nav.component';
+import { PaginadescriptivaComponent } from './components/utils/paginadescriptiva/paginadescriptiva.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,9 +20,9 @@ export const routes: Routes = [
         { path: '', redirectTo: 'tarifa', pathMatch: 'full' }
       ]
     },
-
     {path: 'Instalaciones', component: InstalacionesComponent},
     {path: 'Habitaciones', component: HabitacionesComponent},
     {path: 'Contactanos', component: ContactanosComponent},
+    {path: 'Habitaciones/detalle/:id', component: PaginadescriptivaComponent},
     {path: '**', component: NotfoundComponent}
 ];

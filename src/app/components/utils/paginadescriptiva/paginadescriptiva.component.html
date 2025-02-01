@@ -1,1 +1,21 @@
-<p>paginadescriptiva works!</p>
+<div class="hero-detalle">
+  <span>{{habitacion.tipo}}</span>
+</div>
+
+<div class="container">
+  <div class="detalle-contenido">
+    <div class="carousel" *ngIf="imagenes.length > 0">
+      <button class="nav prev" (click)="prevImage()">&#10094;</button>
+      <div class="carousel-images">
+        <img [src]="imagenes[currentIndex]" [alt]="habitacion.tipo">
+      </div>
+      <button class="nav next" (click)="nextImage()">&#10095;</button>
+    </div>
+    <div class="descripcion">
+        <h3>{{habitacion.tipo}}</h3>
+        <ul>
+          <li *ngFor="let item of descripcionItems">{{ item }}</li>
+        </ul>
+    </div>
+  </div>
+</div>

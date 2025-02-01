@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HeroComponent } from '../utils/hero/hero.component';
 import { PocketbaseService } from '../../services/pocketbase.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 interface Habitacion {
   collectionId: string;
@@ -20,7 +21,8 @@ interface Habitacion {
   standalone: true,
   imports: [
     HeroComponent,
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   templateUrl: './habitaciones.component.html',
   styleUrl: './habitaciones.component.css'
