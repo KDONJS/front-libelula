@@ -30,7 +30,7 @@ export class HeroComponent implements OnInit{
   @Input() mensaje!: string;
   @Input() collectionName: string = 'table_hero';
 
-  heroItem?: HeroItem | null = null; // Inicializar para evitar error de undefined
+  heroItem?: HeroItem | null = null;
 
   constructor(private pocketBaseService: PocketbaseService) {}
 
