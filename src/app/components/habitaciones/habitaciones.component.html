@@ -9,12 +9,12 @@
     </div>
   </div>
   <div class="habitaciones">
-    <div class="habitacion">
+    <div class="habitacion" *ngFor="let Habitacion of habitaciones">
       <div class="imagen">
-        <img src="assets/img/Habit.estandar1.jpg" alt="">
+        <img src="https://admin.libelulahotel.com.pe/api/files/{{Habitacion.collectionId}}/{{Habitacion.id}}/{{Habitacion.imagenes[0]}}" alt="{{Habitacion.tipo}}">
       </div>
       <div class="tipo">
-        <span>HABITACIÓN ESTANDAR</span>
+        <span>{{Habitacion.tipo}}</span>
       </div>
       <div class="acciones">
         <a class="detalle" href="#"><i class="fa-solid fa-circle-plus"></i>VER DETALLES DE LA HABITACIÓN</a>
