@@ -73,6 +73,12 @@
   .descripcion {
     flex: 1 1 100%;
   }
+
+  .hero-detalle span{
+    color: var(--color-white);
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
 }
 
 .descripcion {
