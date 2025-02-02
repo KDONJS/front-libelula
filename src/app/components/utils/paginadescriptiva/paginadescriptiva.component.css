@@ -51,7 +51,7 @@
   color: var(--blue-zodiac-950);
 }
 
-.descripcion li::marker {
+li::marker {
   color: var(--harvest-gold-600);
   font-size: 1.5rem;
 }
@@ -128,4 +128,46 @@
 
 .nav:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.container-reglas {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reglas-div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.reglas-div .reglas{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--blue-zodiac-950);
+}
+
+.reglas-div .reglas b{
+  color: var(--harvest-gold-700);
+}
+
+.reglas-div .politicas b{
+  color: var(--harvest-gold-700);
+}
+
+.reglas-div .politicas ul{
+  padding-left: 3rem;
+  color: var(--blue-zodiac-950);
+}
+
+.reglas-div .clausulas{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--blue-zodiac-950);
+  padding-bottom: 2rem;
 }
