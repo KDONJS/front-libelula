@@ -38,6 +38,7 @@
     overflow: hidden;
     border-radius: 1rem;
     border: 0.2rem solid var(--blue-zodiac-950);
+    margin-bottom: 2rem;
 }
 
 .instalacion img {
@@ -49,7 +50,7 @@
 
 .instalacion .texto-overlay {
     position: absolute;
-    bottom: 10%; 
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     background: var(--color-white);

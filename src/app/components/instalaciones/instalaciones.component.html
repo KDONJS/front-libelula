@@ -7,10 +7,10 @@
         <b>Ambientes acogedores:</b> Decoraciones cuidadosamente elegidas y políticas que promueven tranquilidad y descanso.</p>
     </div>
     <div class="instalaciones">
-        <div class="instalacion">
-            <img src="assets/img/Salitasdescanso2.jpg" alt="Sala de estar">
+        <div class="instalacion" *ngFor="let Instalacion of instalaciones">
+            <img src="https://admin.libelulahotel.com.pe/api/files/{{Instalacion.collectionId}}/{{Instalacion.id}}/{{Instalacion.imagen}}" alt="{{Instalacion.instalacion}}" alt="Sala de estar">
             <div class="texto-overlay">
-                <span class="texto">Sala de estar</span>
+                <span class="texto">{{Instalacion.instalacion}}</span>
             </div>
         </div>
     </div>
