@@ -1,4 +1,5 @@
 <app-hero [mensaje]="hero.mensaje" [titulo]="hero.titulo"></app-hero>
+
 <div class="container">
     <div class="contenido">
         <h2>Instalaciones</h2>
@@ -6,12 +7,35 @@
         <b>Modernidad tecnológica:</b> Habitaciones equipadas con televisores de última generación y aire acondicionado para garantizar confort. <br>
         <b>Ambientes acogedores:</b> Decoraciones cuidadosamente elegidas y políticas que promueven tranquilidad y descanso.</p>
     </div>
+
     <div class="instalaciones">
-        <div class="instalacion" *ngFor="let Instalacion of instalaciones">
-            <img src="https://admin.libelulahotel.com.pe/api/files/{{Instalacion.collectionId}}/{{Instalacion.id}}/{{Instalacion.imagen}}" alt="{{Instalacion.instalacion}}" alt="Sala de estar">
+        <div class="instalacion" *ngFor="let instalacion of instalaciones">
+            <img [src]="'https://admin.libelulahotel.com.pe/api/files/' + instalacion.collectionId + '/' + instalacion.id + '/' + instalacion.imagen"
+                 [alt]="instalacion.instalacion">
+
             <div class="texto-overlay">
-                <span class="texto">{{Instalacion.instalacion}}</span>
+                <span class="texto">{{ instalacion.instalacion }}</span>
+                <button mat-button (click)="openDialog(instalacion)">Ver Más</button>
             </div>
         </div>
     </div>
+
+    <!-- Contenido del diálogo definido en la misma plantilla -->
+    <ng-template #dialogTemplate>
+      <h2 mat-dialog-title>{{ instalacionSeleccionada?.instalacion }}</h2>
+      <mat-dialog-content>
+        <img *ngIf="instalacionSeleccionada"
+              class="dialog-image"
+             [src]="'https://admin.libelulahotel.com.pe/api/files/' + instalacionSeleccionada.collectionId + '/' + instalacionSeleccionada.id + '/' + instalacionSeleccionada.imagen"
+             [alt]="instalacionSeleccionada.instalacion"
+             width="100%">
+
+        <p>{{ instalacionSeleccionada?.detalle }}</p>
+      </mat-dialog-content>
+
+      <mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">Cerrar</button>
+      </mat-dialog-actions>
+    </ng-template>
 </div>
+

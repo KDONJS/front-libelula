@@ -65,6 +65,14 @@
     font-weight:500;
 }
 
+.dialog-image {
+  width: 100%;
+  max-height: 300px; /* Ajusta la altura máxima */
+  object-fit: cover; /* Mantiene la imagen ajustada sin distorsión */
+  border: 0.15rem solid var(--blue-zodiac-950); /* Borde de 1.5px */
+  border-radius: 8px; /* Bordes redondeados para mejor estética */
+}
+
 /*seccion de mobil*/
 @media (max-width: 768px) {
   .container .contenido {

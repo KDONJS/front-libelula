@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { HeroComponent } from "../utils/hero/hero.component";
 import { PocketbaseService } from '../../services/pocketbase.service';
 import { CommonModule } from '@angular/common';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 interface Instalacion {
   collectionId: string;
@@ -19,7 +21,9 @@ interface Instalacion {
   standalone: true,
   imports: [
     HeroComponent,
-    CommonModule
+    CommonModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   templateUrl: './instalaciones.component.html',
   styleUrl: './instalaciones.component.css'
@@ -30,11 +34,17 @@ export class InstalacionesComponent {
     "titulo": "Instalaciones"
   }
 
+  @ViewChild('dialogTemplate') dialogTemplate!: TemplateRef<any>;
+  dialogRef!: MatDialogRef<any>;
+
   collectionName: string = 'instalaciones';
-
   instalaciones: Instalacion[] = []; // Inicializar como un array vacío
+  instalacionSeleccionada: Instalacion | null = null; // Para almacenar la instalación seleccionada
 
-  constructor(private pocketBaseService: PocketbaseService) {}
+  constructor(
+    private pocketBaseService: PocketbaseService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getHeroData();
@@ -50,5 +60,17 @@ export class InstalacionesComponent {
         this.instalaciones = [];
       },
     });
+  }
+
+openDialog(instalacion: Instalacion) {
+  this.instalacionSeleccionada = instalacion;
+  this.dialogRef = this.dialog.open(this.dialogTemplate, {
+    width: '500px', // Puedes ajustar el ancho del diálogo
+    maxWidth: '90vw' // Ajuste para pantallas pequeñas
+  });
+}
+  closeDialog() {
+    this.dialogRef.close();
+    this.instalacionSeleccionada = null; // Limpiar la instalación seleccionada al cerrar el diálogo
   }
 }
