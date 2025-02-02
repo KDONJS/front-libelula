@@ -66,12 +66,22 @@
 @media (max-width: 768px) {
   .detalle-contenido {
     flex-direction: column;
+    padding: 1rem 2rem;
   }
 
   .carousel,
   .descripcion {
     flex: 1 1 100%;
   }
+}
+
+.descripcion {
+  padding-left: 0rem;
+}
+
+
+.descripcion ul {
+  padding-left: 2rem;
 }
 
 /* Estilos del carrusel */
