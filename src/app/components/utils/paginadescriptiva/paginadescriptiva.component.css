@@ -44,6 +44,7 @@
 .descripcion ul {
   list-style-type: disc;
   padding-left: 4rem;
+  margin-bottom: 2rem;
 }
 
 .descripcion li {
@@ -170,4 +171,17 @@ li::marker {
   gap: 0.5rem;
   color: var(--blue-zodiac-950);
   padding-bottom: 2rem;
+}
+
+.descripcion .reserva {
+  background: var(--harvest-gold-600);
+  color: var(--color-white);
+  padding: 0.6rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: lowercase;
 }

@@ -3,7 +3,7 @@ nav {
     display: flex;
     justify-content: center;
     position: absolute;
-    width: 100vw;                
+    width: 100vw;
     height: 4rem;
     z-index: 1000;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -82,7 +82,7 @@ nav {
     right: -100%; /* Fuera de la pantalla inicialmente */
     height: 100vh;
     width: 70%; /* Ancho del menú móvil */
-    background-color: var(--blue-zodiac-900);
+    background-color: var(--blue-zodiac-950);
     flex-direction: column;
     padding: 2rem;
     transition: all 0.3s ease-in-out;
@@ -133,6 +133,11 @@ nav {
     font-size: 2rem;
     color: var(--color-800);
     cursor: pointer;
+}
+
+.accion a{
+  background-color: var(--harvest-gold-700);
+  padding: 0.5rem 2rem;
 }
 
 /* ESTILOS PARA TABLETAS */
