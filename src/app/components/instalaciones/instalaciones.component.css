@@ -79,6 +79,11 @@
     width: 90%;
   }
 
+  .instalacion .texto-overlay .texto {
+    font-size: 1em;
+    width: max-content;
+}
+
     .container .contenido h2 {
         font-size: 2em;
     }
