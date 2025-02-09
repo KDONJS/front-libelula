@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailService } from '../../services/email.service';
+import { NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 interface Country {
   name: string;
@@ -9,11 +13,26 @@ interface Country {
 @Component({
   selector: 'app-contactanos',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contactanos.component.html',
   styleUrl: './contactanos.component.css'
 })
 export class ContactanosComponent{
+
+  mensajeExito: string | null = null;
+  mensajeError: string | null = null;
+
+
+  nombre = '';
+  correo = '';
+  telefono = '';
+  direccion = '';
+  motivo = '';
+  pais = '';
+  mensaje = '';
+  terminos = false;
+  politicas = false;
+  publicidad = false;
 
   paises = [
     { name: 'Argentina', fifa: 'ARG', flag: 'https://flagcdn.com/w320/ar.png' },
@@ -73,5 +92,37 @@ export class ContactanosComponent{
     { name: 'Líbano', fifa: 'LIB', flag: 'https://flagcdn.com/w320/lb.png' },
     { name: 'Siria', fifa: 'SYR', flag: 'https://flagcdn.com/w320/sy.png' }
   ];
+
+  constructor(private emailService: EmailService) {}
+
+  enviarFormulario() {
+    if (!this.terminos || !this.politicas) {
+      this.mensajeError = 'Debe aceptar los términos y políticas.';
+      return;
+    }
+
+    const datos = {
+      nombre: this.nombre,
+      correo: this.correo,
+      telefono: this.telefono,
+      direccion: this.direccion,
+      motivo: this.motivo,
+      pais: this.pais,
+      mensaje: this.mensaje
+    };
+
+    this.emailService.enviarCorreo(datos).subscribe(
+      response => {
+        this.mensajeExito = '✅ ¡Correo enviado con éxito!';
+        this.mensajeError = null;
+        setTimeout(() => this.mensajeExito = null, 5000); // Ocultar después de 5s
+      },
+      error => {
+        this.mensajeError = '❌ Error al enviar el correo. Inténtalo nuevamente.';
+        this.mensajeExito = null;
+        console.error(error);
+      }
+    );
+  }
 
 }

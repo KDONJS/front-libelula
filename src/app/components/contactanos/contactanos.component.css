@@ -6,6 +6,27 @@
   height: 15rem;
 }
 
+.mensaje-exito {
+  color: white;
+  background-color: #28a745;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.mensaje-error {
+  color: white;
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
 .hero-contac span{
   color: var(--color-white);
   font-size: 3rem;
@@ -37,7 +58,7 @@
   height: 1.2rem;
 }
 
-.container form input[type="submit"]{
+.container form button{
   background: var(--harvest-gold-600);
   color: var(--color-white);
   padding: 1rem;

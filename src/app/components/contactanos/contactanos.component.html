@@ -2,42 +2,35 @@
   <span>Contáctanos</span>
 </div>
 <div class="container">
-  <form action="" method="post">
+  <form (ngSubmit)="enviarFormulario()">
     <div class="form-group">
-      <!-- Nombre y apellidos -->
-      <input type="text" name="nombre" placeholder="Nombre y apellidos" required>
-      <!-- Motivo -->
-      <input type="text" name="motivo" placeholder="Motivo" required>
-      <!-- Correo -->
-      <input type="email" name="correo" placeholder="Correo" required>
-      <!-- Telefono -->
-      <input type="tel" name="telefono" placeholder="Teléfono" required>
-      <!-- Direccion -->
-      <input type="text" name="direccion" placeholder="Dirección" required>
-      <!-- pais select-->
-      <select name="pais" id="pais" required>
-        <option value="0">Seleccione un país</option>
-        @for (pais of paises; track $index) {
-          <option value="{{ pais.name }}">{{ pais.name }}</option>
-        }
+      <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre y apellidos" required>
+      <input type="text" name="motivo" [(ngModel)]="motivo" placeholder="Motivo" required>
+      <input type="email" name="correo" [(ngModel)]="correo" placeholder="Correo" required>
+      <input type="tel" name="telefono" [(ngModel)]="telefono" placeholder="Teléfono" required>
+      <input type="text" name="direccion" [(ngModel)]="direccion" placeholder="Dirección" required>
+      <select name="pais" [(ngModel)]="pais" required>
+        <option value="">Seleccione un país</option>
+        <option *ngFor="let pais of paises" [value]="pais.name">{{ pais.name }}</option>
       </select>
     </div>
-    <!-- Mensaje -->
-    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje" required></textarea>
-    <!-- check terminos -->
+    <textarea name="mensaje" [(ngModel)]="mensaje" placeholder="Mensaje" required></textarea>
     <div class="terminos">
-      <input type="checkbox" name="terminos" id="terminos" required>
+      <input type="checkbox" name="terminos" [(ngModel)]="terminos" required>
       <label for="terminos">Acepto los términos y condiciones</label>
     </div>
     <div class="terminos">
-      <input type="checkbox" name="politicas" id="politicas" required>
-      <label for="terminos">He leído y acepto las Políticas de Protección de Datos Personales.*</label>
+      <input type="checkbox" name="politicas" [(ngModel)]="politicas" required>
+      <label for="politicas">He leído y acepto las Políticas de Protección de Datos Personales.*</label>
     </div>
     <div class="terminos">
-      <input type="checkbox" name="publicidad" id="publicidad" required>
-      <label for="terminos">Acepto el envío de publicidad y promociones de Libelula Hotel.</label>
+      <input type="checkbox" name="publicidad" [(ngModel)]="publicidad">
+      <label for="publicidad">Acepto el envío de publicidad y promociones de Libélula Hotel.</label>
     </div>
-    <!-- boton enviar -->
-    <input type="submit" value="Enviar">
+    <div *ngIf="mensajeExito" class="mensaje-exito">{{ mensajeExito }}</div>
+    <div *ngIf="mensajeError" class="mensaje-error">{{ mensajeError }}</div>
+    <button type="submit">Enviar</button>
   </form>
+
 </div>
+
