@@ -9,6 +9,7 @@ import { HospitalidadComponent } from './components/home/hospitalidad/hospitalid
 import { InstalacionesNavComponent } from './components/home/instalaciones-nav/instalaciones-nav.component';
 import { PaginadescriptivaComponent } from './components/utils/paginadescriptiva/paginadescriptiva.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { TerminoComponent } from './components/termino/termino.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -25,6 +26,7 @@ export const routes: Routes = [
     {path: 'Habitaciones', component: HabitacionesComponent},
     {path: 'Contactanos', component: ContactanosComponent},
     {path: 'nosotros', component: NosotrosComponent},
+    {path: 'terminos', component: TerminoComponent},
     {path: 'Habitaciones/detalle/:id', component: PaginadescriptivaComponent},
     {path: '**', component: NotfoundComponent}
 ];

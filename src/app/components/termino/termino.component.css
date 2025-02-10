@@ -1,0 +1,117 @@
+/* ✅ Sección del encabezado (Hero) */
+.hero-contac {
+  background: var(--blue-zodiac-950);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-contac span {
+  color: var(--color-white);
+  font-size: clamp(2rem, 4vw, 3rem);
+  padding-top: 2rem;
+}
+
+/* ✅ Contenedor principal */
+.terminos-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: solid 0.2rem var(--blue-zodiac-950);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background: var(--color-white);
+  color: var(--ebony-950);
+}
+
+/* ✅ Títulos */
+h1 {
+  text-align: center;
+  color: var(--harvest-gold-600);
+  font-size: clamp(1.8rem, 3vw, 2rem);
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: var(--harvest-gold-600);
+  font-size: clamp(1.4rem, 2.5vw, 1.5rem);
+  margin-top: 20px;
+}
+
+/* ✅ Texto y listas */
+p, ul {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+/* ✅ Enlaces */
+a {
+  color: var(--harvest-gold-600);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================== */
+/* 🚀 RESPONSIVE DESIGN */
+/* ============================== */
+
+/* 📱 Para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .terminos-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p, ul {
+    font-size: 0.9rem;
+  }
+
+  .hero-contac {
+    height: 12rem;
+  }
+
+  .hero-contac span {
+    font-size: 2rem;
+  }
+}
+
+/* 📲 Para tablets (pantallas medianas) */
+@media (max-width: 900px) {
+  .terminos-container {
+    max-width: 90%;
+  }
+
+  .hero-contac {
+    height: 14rem;
+  }
+}
+
+/* 🖥️ Para pantallas grandes (Desktop Full HD) */
+@media (min-width: 1200px) {
+  .terminos-container {
+    max-width: 900px;
+  }
+
+  .hero-contac {
+    height: 16rem;
+  }
+}
