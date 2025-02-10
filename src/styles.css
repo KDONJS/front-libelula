@@ -65,9 +65,16 @@
     font-family: "Poppins", serif;
 }
 
-html::-webkit-scrollbar {
-  display: none;
+
+
+html {
+  overflow-x: hidden;
 }
+
+body {
+  overflow-x: hidden;
+}
+
 
 .mi-clase-personalizada .mat-body,
 .mi-clase-personalizada .mat-body-2,
