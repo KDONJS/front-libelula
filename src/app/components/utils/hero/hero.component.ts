@@ -58,10 +58,11 @@ export class HeroComponent implements OnInit{
   }
 
   private generarWhatsAppLink(numero: number): void {
+    const numeroCelular = '+51'+numero
     const mensaje = encodeURIComponent(
-      `¡Hola! Estoy interesado en reservar una habitación en Libélula Hotel. ¿Podrías brindarme más información?`
+      `¡Hola! vengo de libelulahotel.com.pe y Estoy interesado en reservar una habitación en Libélula Hotel. ¿Podrías brindarme más información?`
     );
-    this.whatsappLink = `https://wa.me/${numero}?text=${mensaje}`;
+    this.whatsappLink = `https://wa.me/${numeroCelular}?text=${mensaje}`;
   }
 
 }
