@@ -31,6 +31,7 @@ export class HeroComponent implements OnInit{
   @Input() collectionName: string = 'table_hero';
 
   heroItem?: HeroItem | null = null;
+  whatsappLink: string = '';
 
   constructor(private pocketBaseService: PocketbaseService) {}
 
@@ -43,12 +44,24 @@ export class HeroComponent implements OnInit{
       next: (response) => {
         this.heroItem = response.items.find(
           (item: HeroItem) => item.name_pagina === this.titulo
-        ) || null; // Si no encuentra nada, asigna `null`
+        ) || null;
+
+        if (this.heroItem?.numero_reserva) {
+          this.generarWhatsAppLink(this.heroItem.numero_reserva);
+        }
       },
       error: (error) => {
         console.error('Error obteniendo datos:', error);
-        this.heroItem = null; // Manejar el error y evitar undefined
+        this.heroItem = null;
       },
     });
   }
+
+  private generarWhatsAppLink(numero: number): void {
+    const mensaje = encodeURIComponent(
+      `¡Hola! Estoy interesado en reservar una habitación en Libélula Hotel. ¿Podrías brindarme más información?`
+    );
+    this.whatsappLink = `https://wa.me/${numero}?text=${mensaje}`;
+  }
+
 }
