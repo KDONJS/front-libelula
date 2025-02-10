@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailService } from '../../services/email.service';
 import { NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -93,36 +94,45 @@ export class ContactanosComponent{
     { name: 'Siria', fifa: 'SYR', flag: 'https://flagcdn.com/w320/sy.png' }
   ];
 
-  constructor(private emailService: EmailService) {}
+  constructor(
+    private emailService: EmailService,
+    private route: Router
+  ) {}
 
-  enviarFormulario() {
-    if (!this.terminos || !this.politicas) {
-      this.mensajeError = 'Debe aceptar los términos y políticas.';
-      return;
-    }
+ /** Sanitiza datos eliminando caracteres especiales sospechosos */
+ sanitizeInput(input: string): string {
+  return input.replace(/[<>{}()*[\]\\]/g, '').trim();
+}
 
-    const datos = {
-      nombre: this.nombre,
-      correo: this.correo,
-      telefono: this.telefono,
-      direccion: this.direccion,
-      motivo: this.motivo,
-      pais: this.pais,
-      mensaje: this.mensaje
-    };
-
-    this.emailService.enviarCorreo(datos).subscribe(
-      response => {
-        this.mensajeExito = '✅ ¡Correo enviado con éxito!';
-        this.mensajeError = null;
-        setTimeout(() => this.mensajeExito = null, 5000); // Ocultar después de 5s
-      },
-      error => {
-        this.mensajeError = '❌ Error al enviar el correo. Inténtalo nuevamente.';
-        this.mensajeExito = null;
-        console.error(error);
-      }
-    );
+enviarFormulario() {
+  if (!this.terminos) {
+    this.mensajeError = 'Debe aceptar los términos y condiciones.';
+    return;
   }
+
+  const datos = {
+    nombre: this.sanitizeInput(this.nombre),
+    correo: this.sanitizeInput(this.correo),
+    telefono: this.sanitizeInput(this.telefono),
+    direccion: this.sanitizeInput(this.direccion),
+    motivo: this.sanitizeInput(this.motivo),
+    pais: this.pais,
+    mensaje: this.sanitizeInput(this.mensaje)
+  };
+
+  this.emailService.enviarCorreo(datos).subscribe(
+    response => {
+      this.mensajeExito = '✅ ¡Correo enviado con éxito!';
+      this.mensajeError = null;
+      setTimeout(() => {
+        this.route.navigate(['/']);
+      }, 2000);
+    },
+    error => {
+      this.mensajeError = '❌ Error al enviar el correo. Inténtalo nuevamente.';
+      this.mensajeExito = null;
+    }
+  );
+}
 
 }

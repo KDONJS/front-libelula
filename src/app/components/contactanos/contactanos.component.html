@@ -2,35 +2,56 @@
   <span>Contáctanos</span>
 </div>
 <div class="container">
-  <form (ngSubmit)="enviarFormulario()">
+  <form (ngSubmit)="enviarFormulario()" #form="ngForm">
     <div class="form-group">
-      <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre y apellidos" required>
-      <input type="text" name="motivo" [(ngModel)]="motivo" placeholder="Motivo" required>
-      <input type="email" name="correo" [(ngModel)]="correo" placeholder="Correo" required>
-      <input type="tel" name="telefono" [(ngModel)]="telefono" placeholder="Teléfono" required>
-      <input type="text" name="direccion" [(ngModel)]="direccion" placeholder="Dirección" required>
-      <select name="pais" [(ngModel)]="pais" required>
+      <input
+        type="text" name="nombre" [(ngModel)]="nombre" #nombreRef="ngModel"
+        placeholder="Nombre y apellidos" required
+        pattern="^[a-zA-ZÀ-ÿ\s]{3,50}$" minlength="3" maxlength="50">
+      <div *ngIf="nombreRef.invalid && nombreRef.touched" class="error">❌ Nombre inválido</div>
+
+      <input
+        type="text" name="motivo" [(ngModel)]="motivo" #motivoRef="ngModel"
+        placeholder="Motivo" required minlength="3" maxlength="100">
+      <div *ngIf="motivoRef.invalid && motivoRef.touched" class="error">❌ Mínimo 5 caracteres</div>
+
+      <input
+        type="email" name="correo" [(ngModel)]="correo" #correoRef="ngModel"
+        placeholder="Correo" required>
+      <div *ngIf="correoRef.invalid && correoRef.touched" class="error">❌ Correo inválido</div>
+
+      <input
+        type="tel" name="telefono" [(ngModel)]="telefono" #telefonoRef="ngModel"
+        placeholder="Teléfono" required pattern="^[0-9]{9,15}$">
+      <div *ngIf="telefonoRef.invalid && telefonoRef.touched" class="error">❌ Número inválido</div>
+
+      <input
+        type="text" name="direccion" [(ngModel)]="direccion" #direccionRef="ngModel"
+        placeholder="Dirección" required minlength="5" maxlength="100">
+      <div *ngIf="direccionRef.invalid && direccionRef.touched" class="error">❌ Dirección inválida</div>
+
+      <select name="pais" [(ngModel)]="pais" required #paisRef="ngModel">
         <option value="">Seleccione un país</option>
         <option *ngFor="let pais of paises" [value]="pais.name">{{ pais.name }}</option>
       </select>
+      <div *ngIf="paisRef.invalid && paisRef.touched" class="error">❌ Seleccione un país</div>
     </div>
-    <textarea name="mensaje" [(ngModel)]="mensaje" placeholder="Mensaje" required></textarea>
+
+    <textarea
+      name="mensaje" [(ngModel)]="mensaje" #mensajeRef="ngModel"
+      placeholder="Mensaje" required minlength="10" maxlength="500">
+    </textarea>
+    <div *ngIf="mensajeRef.invalid && mensajeRef.touched" class="error">❌ Mínimo 10 caracteres</div>
+
     <div class="terminos">
-      <input type="checkbox" name="terminos" [(ngModel)]="terminos" required>
+      <input type="checkbox" name="terminos" [(ngModel)]="terminos" required #terminosRef="ngModel">
       <label for="terminos">Acepto los términos y condiciones</label>
+      <div *ngIf="terminosRef.invalid && terminosRef.touched" class="error">❌ Debe aceptar los términos</div>
     </div>
-    <div class="terminos">
-      <input type="checkbox" name="politicas" [(ngModel)]="politicas" required>
-      <label for="politicas">He leído y acepto las Políticas de Protección de Datos Personales.*</label>
-    </div>
-    <div class="terminos">
-      <input type="checkbox" name="publicidad" [(ngModel)]="publicidad">
-      <label for="publicidad">Acepto el envío de publicidad y promociones de Libélula Hotel.</label>
-    </div>
+
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+
     <div *ngIf="mensajeExito" class="mensaje-exito">{{ mensajeExito }}</div>
     <div *ngIf="mensajeError" class="mensaje-error">{{ mensajeError }}</div>
-    <button type="submit">Enviar</button>
   </form>
-
 </div>
-
