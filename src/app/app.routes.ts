@@ -8,6 +8,7 @@ import { TarifaComponent } from './components/home/tarifa/tarifa.component';
 import { HospitalidadComponent } from './components/home/hospitalidad/hospitalidad.component';
 import { InstalacionesNavComponent } from './components/home/instalaciones-nav/instalaciones-nav.component';
 import { PaginadescriptivaComponent } from './components/utils/paginadescriptiva/paginadescriptiva.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,6 +24,7 @@ export const routes: Routes = [
     {path: 'Instalaciones', component: InstalacionesComponent},
     {path: 'Habitaciones', component: HabitacionesComponent},
     {path: 'Contactanos', component: ContactanosComponent},
+    {path: 'nosotros', component: NosotrosComponent},
     {path: 'Habitaciones/detalle/:id', component: PaginadescriptivaComponent},
     {path: '**', component: NotfoundComponent}
 ];

@@ -1,0 +1,114 @@
+.container{
+  width: 100vw;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0rem;
+}
+
+strong{
+  color: var(--harvest-gold-600);
+}
+
+.nosotros{
+  width: 70%;
+  border: solid 0.2rem var(--blue-zodiac-950);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.nosotros h3{
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--blue-zodiac-950);
+}
+
+
+.pilares {
+  width: 74%;
+  display: flex;
+  gap: 2rem;
+}
+
+.pilares .vision, .mision{
+  border: solid 0.2rem var(--blue-zodiac-950);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.pilares .vision h3, .mision h3{
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--blue-zodiac-950);
+}
+
+li::marker {
+  color: var(--harvest-gold-600);
+  font-size: 1.5rem;
+}
+
+.valores{
+  width: 70%;
+  border: solid 0.2rem var(--blue-zodiac-950);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.valores ul{
+  padding-left: 2rem;
+}
+
+.valores ul li span{
+  font-weight: 600;
+  color: var(--blue-zodiac-950);
+}
+
+.compromiso{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  border: solid 0.2rem var(--blue-zodiac-950);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.compromiso h3{
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--blue-zodiac-950);
+}
+
+.compromiso h4{
+  color: var(--harvest-gold-700);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.compromiso ul{
+  margin-top: -0.5rem;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.mensaje{
+  width: 70%;
+  text-align: center;
+  color: var(--blue-zodiac-950);
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .pilares{
+    flex-direction: column;
+    width: 85%;
+  }
+
+  .nosotros h3{
+    font-size: 1.5rem;
+  }
+}
