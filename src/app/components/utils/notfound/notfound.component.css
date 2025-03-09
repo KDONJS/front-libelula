@@ -1,0 +1,24 @@
+.notfound-hero{
+    background: var(--blue-zodiac-950);
+    height: 10rem;
+}
+
+.notfound-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    padding: 2rem;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .notfound-hero{
+        height: 10rem;
+    }
+
+    .notfound-content{
+        height: 30vh;
+        padding: 1rem;
+    }
+}
