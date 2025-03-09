@@ -39,6 +39,10 @@
   border-radius: 0.5rem;
 }
 
+iframe{
+  border-radius: 0.5rem;
+}
+
 @media (max-width: 768px){
   .contenido{
     width: 75%;
