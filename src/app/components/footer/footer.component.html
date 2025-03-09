@@ -29,7 +29,11 @@
         </div>
         <div class="item redes">
             <ul>
-                <li><i class="fa-brands fa-facebook"></i>Facebook</li>
+                <li  *ngFor="let red of redsocial" >
+                  <a href="{{red.link}}" target="_blank">
+                    <i class="fa-brands {{red.icon}}"></i>
+                    {{red.red_social}}</a>
+                </li>
             </ul>
         </div>
         <div class="item boletin">

@@ -40,10 +40,10 @@ export class HabitacionesComponent {
   constructor(private pocketBaseService: PocketbaseService) {}
 
   ngOnInit(): void {
-    this.getHeroData();
+    this.getHabitacionesData();
   }
 
-  private getHeroData(): void {
+  private getHabitacionesData(): void {
     this.pocketBaseService.getCollection(this.collectionName).subscribe({
       next: (response) => {
         this.habitaciones = response.items as Habitacion[]; // Asegurar el tipo correcto
