@@ -29,7 +29,7 @@
         
         <div class="carousel" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'">
           <div class="comment-card" *ngFor="let comentario of comentarios">
-            <h3>{{ comentario.autor }}</h3>
+            <h3>{{ comentario.autor }} - {{ comentario.pais }}</h3>
             <p>{{ comentario.comentario }}</p>
             <small>{{ comentario.fecha | date: 'yyyy-MM-dd' }}</small>
             <ul>

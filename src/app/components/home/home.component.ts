@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.nextComment();
           this.cdr.markForCheck();
         });
-      }, 3000);
+      }, 10000);
     });
   }
 
