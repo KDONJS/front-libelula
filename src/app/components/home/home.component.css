@@ -113,3 +113,132 @@
         font-size: 0.5em;
     }
 }
+
+/* zona de carusel */
+.comentarios {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.comentarios ul {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.comentarios ul li {
+  list-style: none;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.comment-card {
+  min-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 0.15rem solid var(--blue-zodiac-950);
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.5rem 5rem;
+}
+
+.nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--harvest-gold-600);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.nav-btn.prev {
+  left: 0.5rem;
+}
+
+.nav-btn.next {
+  right: 0.5rem;
+}
+
+.comentarios .titulo{
+  text-align: center;
+  color: var(--blue-zodiac-950);
+  font-size: 1.5rem;
+}
+
+/* mobile */
+
+@media (max-width: 768px) {
+  .comentarios ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .comentarios ul li {
+    list-style: none;
+  }
+
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .comment-card {
+    min-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: 0.15rem solid var(--blue-zodiac-950);
+    border-radius: 5px;
+    text-align: center;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--harvest-gold-600);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+
+  .nav-btn.prev {
+    left: 0.5rem;
+  }
+
+  .nav-btn.next {
+    right: 0.5rem;
+  }
+
+  .comentarios .titulo{
+    text-align: center;
+    color: var(--blue-zodiac-950);
+    font-size: 1.5rem;
+  }
+}

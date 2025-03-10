@@ -19,5 +19,30 @@
         </div>
       </div>
     </div>
+
+    <div class="comentarios">
+      <div class="titulo">
+        <h2>Comentarios de nuestros clientes</h2>
+      </div>
+      <div class="carousel-container">
+        <button class="nav-btn prev" (click)="prevComment()">❮</button>
+        
+        <div class="carousel" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'">
+          <div class="comment-card" *ngFor="let comentario of comentarios">
+            <h3>{{ comentario.autor }}</h3>
+            <p>{{ comentario.comentario }}</p>
+            <small>{{ comentario.fecha | date: 'yyyy-MM-dd' }}</small>
+            <ul>
+              <li *ngFor="let star of [].constructor(comentario.estrellas)">
+                ⭐
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <button class="nav-btn next" (click)="nextComment()">❯</button>
+      </div>
+    </div>    
+    
   </div>
 </div>
