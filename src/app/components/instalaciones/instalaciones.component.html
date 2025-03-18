@@ -9,7 +9,7 @@
     </div>
 
     <div class="instalaciones">
-        <div class="instalacion" *ngFor="let instalacion of instalaciones">
+        <div data-aos="zoom-in-up" class="instalacion" *ngFor="let instalacion of instalaciones">
             <img [src]="'https://admin.libelulahotel.com.pe/api/files/' + instalacion.collectionId + '/' + instalacion.id + '/' + instalacion.imagen"
                  [alt]="instalacion.instalacion">
 

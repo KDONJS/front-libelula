@@ -17,7 +17,7 @@
 
 .texto{
   padding: 1rem;
-  width: 60%;
+  width: 50%;
 }
 
 .texto h3{
@@ -31,11 +31,15 @@
 }
 
 .imagen{
-  width: 40%;
+  width: 50%;
   height: 20rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 0.5rem;
+}
+
+iframe{
   border-radius: 0.5rem;
 }
 
