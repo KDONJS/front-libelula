@@ -1,1 +1,27 @@
-<p>blog works!</p>
+<app-hero [mensaje]="hero.mensaje" [titulo]="hero.titulo"></app-hero>
+
+<div class="container">
+  <div class="contenido">
+    <h2>Nuestro Blog</h2>
+    <p>Descubre las últimas noticias, consejos de viaje y experiencias únicas en Puerto Maldonado</p>
+  </div>
+
+  <div class="blogs">
+    <div class="blog" *ngFor="let blog of blogs" data-aos="fade-up">
+      <div class="imagen">
+        <img [src]="'https://admin.libelulahotel.com.pe/api/files/' + blog.collectionId + '/' + blog.id + '/' + blog.imagen" [alt]="blog.titulo">
+      </div>
+      <div class="info">
+        <div class="fecha">
+          <i class="fa-regular fa-calendar"></i>
+          <span>{{blog.created | date:'dd/MM/yyyy'}}</span>
+        </div>
+        <h3>{{blog.titulo}}</h3>
+        <p>{{blog.resumen}}</p>
+        <a class="leer-mas" [routerLink]="['detalle', blog.id]">
+          Leer más <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

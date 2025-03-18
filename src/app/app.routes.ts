@@ -10,6 +10,8 @@ import { InstalacionesNavComponent } from './components/home/instalaciones-nav/i
 import { PaginadescriptivaComponent } from './components/utils/paginadescriptiva/paginadescriptiva.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { TerminoComponent } from './components/termino/termino.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { DetalleblogComponent } from './components/utils/detalleblog/detalleblog.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -27,6 +29,8 @@ export const routes: Routes = [
     {path: 'Contactanos', component: ContactanosComponent},
     {path: 'nosotros', component: NosotrosComponent},
     {path: 'terminos', component: TerminoComponent},
+    {path: 'blog', component: BlogComponent},
     {path: 'Habitaciones/detalle/:id', component: PaginadescriptivaComponent},
+    {path: 'blog/detalle/:id', component: DetalleblogComponent},
     {path: '**', component: NotfoundComponent}
 ];

@@ -1,0 +1,32 @@
+<div class="hero-blog">
+  <h1>{{blog?.titulo}}</h1>
+  <div class="meta-info">
+    <span><i class="fa-regular fa-calendar"></i> {{blog?.created | date:'dd MMM yyyy'}}</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="blog-content">
+    <div class="imagen-principal">
+      <img [src]="imagenUrl" [alt]="blog?.titulo">
+    </div>
+    <div class="contenido">
+      <div class="texto" [innerHTML]="blog?.cuerpo"></div>
+    </div>
+  </div>
+
+  <div class="compartir">
+    <h3>Comparte este artículo</h3>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{currentUrl}}" target="_blank">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://twitter.com/intent/tweet?url={{currentUrl}}&text={{blog?.titulo}}" target="_blank">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a href="https://wa.me/?text={{blog?.titulo}} {{currentUrl}}" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+</div>
