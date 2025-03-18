@@ -24,25 +24,36 @@ nav {
 /* LOGO */
 .logo {
     background-color: var(--black-950);
-    padding: 2.5rem 1rem;
-    height: 3rem;
-    border-radius: 0 0 1rem 1rem;
+    padding: 2rem 1.5rem;
+    display: flex;
+    height: 7rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 1.5rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateY(2px);
 }
 
 .logo a {
     color: var(--color-black);
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
-.logo a .img-logo{
-    width:5rem ;
-    margin-top: 0.5rem;
-    filter: drop-shadow(0rem 0rem 0.5rem var(--black-900));
+.logo a .img-logo {
+    width: 6rem;
+    height: auto;
+    filter: drop-shadow(0rem 0rem 0.8rem var(--black-900));
+    transition: filter 0.3s ease;
 }
 
-.logo a .img-logo img{
-    width: 100%;
-    object-fit: contain;
+.logo a .img-logo:hover {
+    filter: drop-shadow(0rem 0rem 1rem var(--black-900));
 }
 
 .menu-2 ul{
