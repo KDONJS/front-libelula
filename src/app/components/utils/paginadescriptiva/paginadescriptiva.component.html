@@ -5,11 +5,11 @@
 <div class="container">
   <div class="detalle-contenido">
     <div class="carousel" *ngIf="imagenes.length > 0">
-      <button class="nav prev" (click)="prevImage()">&#10094;</button>
       <div class="carousel-images">
         <img [src]="imagenes[currentIndex]" [alt]="habitacion.tipo">
       </div>
-      <button class="nav next" (click)="nextImage()">&#10095;</button>
+      <button class="nav prev" (click)="prevImage()">❮</button>
+      <button class="nav next" (click)="nextImage()">❯</button>
     </div>
     <div class="descripcion">
         <h3>{{habitacion.tipo}}</h3>

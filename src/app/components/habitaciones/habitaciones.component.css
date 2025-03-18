@@ -1,9 +1,10 @@
 .container {
-  padding: 2rem;
+  padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4rem;
 }
 
 .container .contenido {
@@ -14,51 +15,77 @@
   justify-content: center;
   color: var(--blue-zodiac-950);
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .container .contenido .titulo h2 {
-  font-size: 2.5em;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.container .contenido .titulo h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--harvest-gold-600);
 }
 
 .container .contenido .descripcion p {
-  font-size: 1.15em;
-  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--black-700);
+  max-width: 800px;
 }
 
 .container .habitaciones {
   width: 65%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .container .habitaciones .habitacion {
   width: 100%;
-  height: 100%;
   overflow: hidden;
-  border-radius: 1rem;
-  border: 0.2rem solid var(--blue-zodiac-950);
+  border-radius: 1.5rem;
+  border: 0.2rem solid var(--blue-zodiac-50);
+  box-shadow: 0 6px 25px rgba(20, 39, 74, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container .habitaciones .habitacion:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(20, 39, 74, 0.25);
 }
 
 .container .habitaciones .habitacion img {
   width: 100%;
-  height: 100%;
-  object-fit:cover;
+  height: 400px;
+  object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.container .habitaciones .habitacion:hover img {
+  transform: scale(1.05);
 }
 
 .container .habitaciones .habitacion .tipo {
-  height: 3rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--blue-zodiac-950);
   color: var(--color-white);
-  font-size: 1.5em;
+  font-size: 1.6rem;
   padding: 0.5rem 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .container .habitaciones .habitacion .acciones {
@@ -68,59 +95,77 @@
   background: var(--color-white);
 }
 
-.container .habitaciones .habitacion .acciones a{
+.container .habitaciones .habitacion .acciones a {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.8rem;
   align-items: center;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .container .habitaciones .habitacion .acciones .detalle {
   color: var(--blue-zodiac-950);
+  font-weight: 500;
+}
+
+.container .habitaciones .habitacion .acciones .detalle:hover {
+  color: var(--harvest-gold-600);
 }
 
 .container .habitaciones .habitacion .acciones .detalle i {
   color: var(--harvest-gold-600);
+  font-size: 1.2rem;
 }
 
 .container .habitaciones .habitacion .acciones .reserva {
   background: var(--harvest-gold-600);
   color: var(--color-white);
-  padding: 0.6rem 2rem;
-  border-radius: 0.5rem;
+  padding: 0.8rem 2.5rem;
+  border-radius: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(197, 128, 49, 0.2);
 }
 
-/*seccion de mobil*/
+.container .habitaciones .habitacion .acciones .reserva:hover {
+  background: var(--harvest-gold-700);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
+  .container {
+    padding: 3rem 1rem;
+    gap: 3rem;
+  }
+
   .container .contenido {
     width: 90%;
   }
 
-    .container .contenido .titulo h2 {
-        font-size: 2em;
-    }
+  .container .contenido .titulo h2 {
+    font-size: 2rem;
+  }
 
-    .container .contenido .descripcion p {
-        font-size: 1em;
-    }
+  .container .contenido .descripcion p {
+    font-size: 1.1rem;
+  }
 
-    .container .habitaciones {
-     width: 90%;
+  .container .habitaciones {
+    width: 90%;
   }
 
   .container .habitaciones .habitacion .acciones {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 2rem;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
   }
 
   .container .habitaciones .habitacion .tipo {
-    height: 2rem;
-    font-size: 1.1em;
+    height: 3rem;
+    font-size: 1.3rem;
   }
 
   .container .habitaciones .habitacion .acciones .detalle {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }

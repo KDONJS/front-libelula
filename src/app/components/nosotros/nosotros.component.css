@@ -1,50 +1,128 @@
-.container{
+.container {
   width: 100vw;
   display: flex;
-  gap: 2rem;
+  gap: 3.5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0rem;
+  padding: 6rem 0;
 }
 
-strong{
+strong {
   color: var(--harvest-gold-600);
+  font-weight: 600;
 }
 
-.nosotros{
+.nosotros {
   width: 70%;
   border: solid 0.2rem var(--blue-zodiac-950);
-  border-radius: 1rem;
-  padding: 2rem;
+  border-radius: 1.5rem;
+  padding: 3rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 1.5rem;
   flex-direction: column;
+  box-shadow: 0 4px 20px rgba(20, 39, 74, 0.05);
+  transition: transform 0.3s ease;
 }
 
-.nosotros h3{
-  font-size: 2rem;
-  font-weight: 500;
+.nosotros:hover {
+  transform: translateY(-5px);
+}
+
+.nosotros h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
   color: var(--blue-zodiac-950);
+  position: relative;
+  margin-bottom: 1rem;
 }
 
+.nosotros h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--harvest-gold-600);
+}
+
+.nosotros span {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--black-700);
+}
 
 .pilares {
   width: 74%;
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
-.pilares .vision, .mision{
+.pilares .vision, .pilares .mision {
   border: solid 0.2rem var(--blue-zodiac-950);
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  flex: 1;
+  box-shadow: 0 4px 20px rgba(20, 39, 74, 0.05);
+  transition: all 0.3s ease;
 }
 
-.pilares .vision h3, .mision h3{
-  font-weight: 500;
-  font-size: 1.5rem;
+.pilares .vision:hover, .pilares .mision:hover {
+  transform: translateY(-5px);
+  border-color: var(--harvest-gold-600);
+}
+
+.pilares .vision h3, .pilares .mision h3 {
+  font-weight: 600;
+  font-size: 1.8rem;
   color: var(--blue-zodiac-950);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.pilares .vision h3::after, .pilares .mision h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--harvest-gold-600);
+}
+
+.pilares .vision span, .pilares .mision span {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--black-700);
+}
+
+.valores {
+  width: 70%;
+  border: solid 0.2rem var(--blue-zodiac-950);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(20, 39, 74, 0.05);
+}
+
+.valores ul {
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.valores ul li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--black-700);
+}
+
+.valores ul li span {
+  font-weight: 600;
+  color: var(--blue-zodiac-950);
+  display: block;
+  margin-bottom: 0.3rem;
 }
 
 li::marker {
@@ -52,63 +130,100 @@ li::marker {
   font-size: 1.5rem;
 }
 
-.valores{
-  width: 70%;
-  border: solid 0.2rem var(--blue-zodiac-950);
-  border-radius: 1rem;
-  padding: 2rem;
-}
-
-.valores ul{
-  padding-left: 2rem;
-}
-
-.valores ul li span{
-  font-weight: 600;
-  color: var(--blue-zodiac-950);
-}
-
-.compromiso{
+.compromiso {
   display: flex;
   flex-direction: column;
   width: 70%;
   border: solid 0.2rem var(--blue-zodiac-950);
-  border-radius: 1rem;
-  padding: 2rem;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  gap: 1.5rem;
+  box-shadow: 0 4px 20px rgba(20, 39, 74, 0.05);
 }
 
-.compromiso h3{
-  font-size: 2rem;
-  font-weight: 500;
+.compromiso h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
   color: var(--blue-zodiac-950);
-}
-
-.compromiso h4{
-  color: var(--harvest-gold-700);
-  font-size: 1.3rem;
-  font-weight: 500;
-}
-
-.compromiso ul{
-  margin-top: -0.5rem;
-  padding-left: 2.5rem;
   margin-bottom: 1rem;
+  position: relative;
 }
 
-.mensaje{
+.compromiso h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--harvest-gold-600);
+}
+
+.compromiso h4 {
+  color: var(--harvest-gold-700);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.compromiso ul {
+  margin: 0.5rem 0 1.5rem 2.5rem;
+}
+
+.compromiso ul li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--black-700);
+  margin-bottom: 0.5rem;
+}
+
+.mensaje {
   width: 70%;
   text-align: center;
   color: var(--blue-zodiac-950);
-  padding: 2rem;
+  padding: 3rem;
+}
+
+.mensaje h2 {
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
-  .pilares{
-    flex-direction: column;
-    width: 85%;
+  .container {
+    padding: 4rem 1rem;
   }
 
-  .nosotros h3{
+  .nosotros, .valores, .compromiso {
+    width: 85%;
+    padding: 2rem;
+  }
+
+  .pilares {
+    flex-direction: column;
+    width: 85%;
+    gap: 2rem;
+  }
+
+  .nosotros h3 {
+    font-size: 1.8rem;
+  }
+
+  .pilares .vision h3, .pilares .mision h3 {
     font-size: 1.5rem;
+  }
+
+  .compromiso h3 {
+    font-size: 1.8rem;
+  }
+
+  .mensaje h2 {
+    font-size: 1.5rem;
+  }
+
+  .mensaje {
+    width: 85%;
+    padding: 2rem;
   }
 }

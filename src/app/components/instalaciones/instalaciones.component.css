@@ -1,9 +1,10 @@
 .container {
-  padding: 2rem;
+  padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4rem;
 }
 
 .container .contenido {
@@ -13,86 +14,226 @@
     align-items: center;
     justify-content: center;
     color: var(--blue-zodiac-950);
+    text-align: center;
 }
 
 .container .contenido h2 {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.container .contenido h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--harvest-gold-600);
 }
 
 .container .contenido p {
-    font-size: 1.15em;
-    text-align: left;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--black-700);
+}
+
+.container .contenido p b {
+    color: var(--harvest-gold-700);
+    font-size: 1.3rem;
+    display: block;
+    margin-top: 1rem;
 }
 
 .instalaciones {
-    width: 70%;
-    padding: 2rem;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0;
 }
 
 .instalacion {
     position: relative;
     width: 100%;
-    height: 30rem;
+    height: 500px;
     overflow: hidden;
-    border-radius: 1rem;
-    border: 0.2rem solid var(--blue-zodiac-950);
-    margin-bottom: 2rem;
+    border-radius: 1.5rem;
+    border: 0.2rem solid var(--blue-zodiac-50);
+    box-shadow: 0 6px 25px rgba(20, 39, 74, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instalacion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(20, 39, 74, 0.25);
 }
 
 .instalacion img {
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
+}
+
+.instalacion:hover img {
+    transform: scale(1.05);
 }
 
 .instalacion .texto-overlay {
     position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-white);
-    padding: 8px 15px;
-    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(20, 39, 74, 0.95), rgba(20, 39, 74, 0.7));
+    padding: 2rem;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .instalacion .texto-overlay .texto {
+    color: var(--color-white);
+    font-size: 1.6rem;
+    font-weight: 500;
+    border: 2px solid var(--harvest-gold-600);
+    background: var(--harvest-gold-600);
+    padding: 0.8rem 2rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.instalacion .texto-overlay .texto:hover {
+    background: var(--harvest-gold-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(197, 128, 49, 0.3);
+}
+
+@media (max-width: 768px) {
+    .instalacion {
+        height: 400px;
+    }
+    .container {
+        padding: 3rem 1rem;
+        gap: 3rem;
+    }
+
+    .instalaciones {
+        width: 90%;
+    }
+
+    .instalacion {
+        height: 300px;
+    }
+
+    .instalacion .texto-overlay {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+
+    .instalacion .texto-overlay .texto {
+        font-size: 1.3rem;
+    }
+}
+
+/* Dialog Styles */
+::ng-deep .mat-dialog-container {
+    padding: 2rem !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 10px 40px rgba(20, 39, 74, 0.2) !important;
+}
+
+::ng-deep .mat-dialog-title {
     color: var(--blue-zodiac-950);
-    font-size: 1.2em;
-    font-weight:500;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center;
 }
 
 .dialog-image {
-  width: 100%;
-  max-height: 300px; /* Ajusta la altura máxima */
-  object-fit: cover; /* Mantiene la imagen ajustada sin distorsión */
-  border: 0.15rem solid var(--blue-zodiac-950); /* Borde de 1.5px */
-  border-radius: 8px; /* Bordes redondeados para mejor estética */
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(20, 39, 74, 0.1);
 }
 
-/*seccion de mobil*/
+::ng-deep .mat-dialog-content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+::ng-deep .mat-dialog-content p {
+    color: var(--black-700);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 1.5rem 0;
+}
+
+::ng-deep .mat-dialog-actions {
+    justify-content: center !important;
+    padding: 1rem 0 0 0 !important;
+}
+
+::ng-deep .mat-dialog-actions button {
+    background: var(--harvest-gold-600) !important;
+    color: white !important;
+    padding: 0.8rem 2.5rem !important;
+    border-radius: 0.8rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+
+::ng-deep .mat-dialog-actions button:hover {
+    background: var(--harvest-gold-700) !important;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
-  .container .contenido {
-    width: 90%;
-  }
+    .container {
+        padding: 3rem 1rem;
+    }
 
-  .instalacion .texto-overlay .texto {
-    font-size: 1em;
-    width: max-content;
-}
+    .container .contenido {
+        width: 90%;
+    }
 
     .container .contenido h2 {
-        font-size: 2em;
+        font-size: 2rem;
     }
 
     .container .contenido p {
-        font-size: 1em;
+        font-size: 1.1rem;
     }
 
-  .instalaciones {
-     width: 90%;
-  }
+    .container .contenido p b {
+        font-size: 1.2rem;
+    }
+
+    .instalaciones {
+        width: 90%;
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .instalacion {
+        height: 20rem;
+    }
+
+    .instalacion .texto-overlay .texto {
+        font-size: 1.1rem;
+    }
+
+    ::ng-deep .mat-dialog-title {
+        font-size: 1.6rem !important;
+    }
+
+    .dialog-image {
+        height: 300px;
+    }
 }
