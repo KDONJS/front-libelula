@@ -115,117 +115,151 @@
 }
 
 /* zona de carusel */
+/* Comments Section Styles */
 .comentarios {
   width: 90%;
-  margin: auto;
+  margin: 2rem auto;
   overflow: hidden;
   position: relative;
+  padding: 2rem 0;
 }
 
-.comentarios ul {
+.comentarios .titulo {
   text-align: center;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  gap: 1rem;
-  align-items: center;
+  margin-bottom: 3rem;
 }
 
-.comentarios ul li {
-  list-style: none;
+.comentarios .titulo h2 {
+  color: var(--blue-zodiac-950);
+  font-size: 2.5rem;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+
+.comentarios .titulo h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background-color: var(--harvest-gold-600);
+}
+
+.carousel-container {
+  position: relative;
+  padding: 1rem;
 }
 
 .carousel {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .comment-card {
   min-width: 100%;
-  padding: 1rem;
+  padding: 2rem 5rem;
   box-sizing: border-box;
-  border: 0.15rem solid var(--blue-zodiac-950);
-  border-radius: 5px;
+  border: 2px solid var(--blue-zodiac-50);
+  border-radius: 1rem;
   text-align: center;
-  padding: 0.5rem 5rem;
+  background: var(--color-white);
+  box-shadow: 0 4px 15px rgba(20, 39, 74, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.comment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(13, 26, 49, 0.1);
+}
+
+.comment-card h3 {
+  color: var(--blue-zodiac-950);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.comment-card p {
+  color: var(--black-700);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+}
+
+.comment-card small {
+  color: var(--black-500);
+  display: block;
+  margin: 1rem 0;
+}
+
+.comment-card ul {
+  margin: 1rem 0;
+}
+
+.comment-card ul li {
+  display: inline-block;
+  margin: 0 2px;
+  font-size: 1.2rem;
 }
 
 .nav-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--harvest-gold-600);
-  color: white;
+  color: var(--color-white);
   border: none;
   cursor: pointer;
-  z-index: 10;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(197, 128, 49, 0.2);
+}
+
+.nav-btn:hover {
+  background-color: var(--harvest-gold-700);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .nav-btn.prev {
-  left: 0.5rem;
+  left: 1rem;
 }
 
 .nav-btn.next {
-  right: 0.5rem;
+  right: 1rem;
 }
 
-.comentarios .titulo{
-  text-align: center;
-  color: var(--blue-zodiac-950);
-  font-size: 1.5rem;
-}
-
-/* mobile */
-
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .comentarios ul {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
+  .comentarios {
+    width: 95%;
+    padding: 1rem 0;
   }
 
-  .comentarios ul li {
-    list-style: none;
-  }
-
-  .carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+  .comentarios .titulo h2 {
+    font-size: 1.8rem;
   }
 
   .comment-card {
-    min-width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-    border: 0.15rem solid var(--blue-zodiac-950);
-    border-radius: 5px;
-    text-align: center;
-    padding: 0.5rem 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .comment-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .comment-card p {
+    font-size: 1rem;
   }
 
   .nav-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--harvest-gold-600);
-    color: white;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
   }
 
   .nav-btn.prev {
@@ -234,11 +268,5 @@
 
   .nav-btn.next {
     right: 0.5rem;
-  }
-
-  .comentarios .titulo{
-    text-align: center;
-    color: var(--blue-zodiac-950);
-    font-size: 1.5rem;
   }
 }
