@@ -36,7 +36,13 @@ nav {
 
 .logo a .img-logo{
     width:5rem ;
+    margin-top: 0.5rem;
     filter: drop-shadow(0rem 0rem 0.5rem var(--black-900));
+}
+
+.logo a .img-logo img{
+    width: 100%;
+    object-fit: contain;
 }
 
 .menu-2 ul{
