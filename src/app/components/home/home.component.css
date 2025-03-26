@@ -167,8 +167,9 @@
 .comentarios {
   width: 90%;
   margin: 2rem auto;
+  overflow: hidden;
   position: relative;
-  padding: 0rem 0;
+  padding: 2rem 0rem;
 }
 
 .comentarios .titulo {
