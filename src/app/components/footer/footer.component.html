@@ -6,33 +6,33 @@
                 <p>HOTELS</p>
             </div>
             <div class="direccion">
-              <span>
-                  Jr. Puno 429. Puerto Maldonado. Madre de Dios, Perú
-              </span>
-              <br>
-              <span>
-                <a href="tel:+51971134446">971 134 446</a>
-              </span>
-              <br>
-              <span>
-                <a href="mailto:libelulahotel@gmail.com">libelulahotel&#64;gmail.com</a>
-              </span>
-
+                <p>Jr. Puno 429. Puerto Maldonado.<br>Madre de Dios, Perú</p>
+                <p>
+                    <a href="tel:+51971134446">
+                        <i class="fa-solid fa-phone"></i> 971 134 446
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:libelulahotel@gmail.com">
+                        <i class="fa-solid fa-envelope"></i> libelulahotel&#64;gmail.com
+                    </a>
+                </p>
             </div>
         </div>
         <div class="item menu">
             <ul>
                 <li><a routerLink="nosotros">Nosotros</a></li>
                 <li><a routerLink="Contactanos">Contacto</a></li>
-                <li><a routerLink="terminos">Terminos y condiciones</a></li>
+                <li><a routerLink="terminos">Términos y condiciones</a></li>
             </ul>
         </div>
         <div class="item redes">
             <ul>
-                <li  *ngFor="let red of redsocial" >
-                  <a href="{{red.link}}" target="_blank">
-                    <i class="fa-brands {{red.icon}}"></i>
-                    {{red.red_social}}</a>
+                <li *ngFor="let red of redsocial">
+                    <a href="{{red.link}}" target="_blank">
+                        <i class="fa-brands {{red.icon}}"></i>
+                        {{red.red_social}}
+                    </a>
                 </li>
             </ul>
         </div>
@@ -41,9 +41,9 @@
                 <span>Suscríbete a nuestro boletín</span>
             </div>
             <div class="formulario">
-                <form action="">
-                    <input type="text" placeholder="Dirección de correo electrónico">
-                    <button>Ok</button>
+                <form>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
                 </form>
             </div>
         </div>

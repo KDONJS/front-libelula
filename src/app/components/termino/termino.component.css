@@ -1,117 +1,134 @@
-/* ✅ Sección del encabezado (Hero) */
 .hero-contac {
-  background: var(--blue-zodiac-950);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 15rem;
-  text-align: center;
-  padding: 1rem;
+    background: linear-gradient(rgba(20, 39, 74, 0.9), rgba(20, 39, 74, 0.9)),
+                url('/assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
 }
 
 .hero-contac span {
-  color: var(--color-white);
-  font-size: clamp(2rem, 4vw, 3rem);
-  padding-top: 2rem;
+    font-size: 3rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 1rem;
 }
 
-/* ✅ Contenedor principal */
+.hero-contac span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--harvest-gold-600);
+}
+
 .terminos-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  border: solid 0.2rem var(--blue-zodiac-950);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  background: var(--color-white);
-  color: var(--ebony-950);
+    max-width: 1000px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    background: rgba(20, 39, 74, 0.02);
+    border-radius: 2rem;
+    padding: 3rem 2rem;
 }
 
-/* ✅ Títulos */
-h1 {
-  text-align: center;
-  color: var(--harvest-gold-600);
-  font-size: clamp(1.8rem, 3vw, 2rem);
-  margin-bottom: 20px;
+section {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 20px rgba(20, 39, 74, 0.08);
+    border-left: none;
+    border-top: 4px solid var(--blue-zodiac-950);
+    transition: all 0.3s ease;
+}
+
+section:hover {
+    transform: none;
+    box-shadow: 0 8px 30px rgba(20, 39, 74, 0.12);
+    border-top-color: var(--harvest-gold-600);
 }
 
 h2 {
-  color: var(--harvest-gold-600);
-  font-size: clamp(1.4rem, 2.5vw, 1.5rem);
-  margin-top: 20px;
+    color: var(--blue-zodiac-950);
+    font-size: 1.6rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(20, 39, 74, 0.1);
 }
 
-/* ✅ Texto y listas */
-p, ul {
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  line-height: 1.6;
+h2::before {
+    width: 20px;
+    height: 3px;
 }
 
-ul {
-  padding-left: 20px;
+p {
+    color: var(--blue-zodiac-900);
+    line-height: 1.9;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    text-align: justify;
 }
 
-/* ✅ Enlaces */
+ul li {
+    color: var(--blue-zodiac-900);
+    font-size: 1.05rem;
+    padding-left: 0.5rem;
+}
+
+ul li::before {
+    content: '•';
+    color: var(--harvest-gold-600);
+    font-size: 1.5rem;
+    left: -1rem;
+    top: -2px;
+}
+
 a {
-  color: var(--harvest-gold-600);
-  text-decoration: none;
-  font-weight: bold;
+    color: var(--harvest-gold-600);
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+    color: var(--harvest-gold-700);
+    text-decoration: underline;
 }
 
-/* ============================== */
-/* 🚀 RESPONSIVE DESIGN */
-/* ============================== */
-
-/* 📱 Para pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-  .terminos-container {
-    padding: 15px;
-    margin: 20px auto;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  p, ul {
-    font-size: 0.9rem;
-  }
-
-  .hero-contac {
-    height: 12rem;
-  }
-
-  .hero-contac span {
-    font-size: 2rem;
-  }
+strong {
+    color: var(--blue-zodiac-950);
+    font-weight: 600;
 }
 
-/* 📲 Para tablets (pantallas medianas) */
-@media (max-width: 900px) {
-  .terminos-container {
-    max-width: 90%;
-  }
+@media (max-width: 768px) {
+    .hero-contac {
+        height: 200px;
+    }
 
-  .hero-contac {
-    height: 14rem;
-  }
-}
+    .hero-contac span {
+        font-size: 2rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
 
-/* 🖥️ Para pantallas grandes (Desktop Full HD) */
-@media (min-width: 1200px) {
-  .terminos-container {
-    max-width: 900px;
-  }
+    .terminos-container {
+        margin: 2rem auto;
+    }
 
-  .hero-contac {
-    height: 16rem;
-  }
+    section {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, ul li {
+        font-size: 1rem;
+    }
 }

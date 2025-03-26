@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class PocketbaseService {
   private apiUrl = 'https://admin.libelulahotel.com.pe/api/collections';
 
-
   constructor(private http: HttpClient) {}
 
   /**
@@ -27,4 +26,14 @@ export class PocketbaseService {
       const url = `${this.apiUrl}/${collectionName}/records/${id}`;
       return this.http.get(url);
     }
+
+  createRecord(collectionName: string, data: any): Observable<any> {
+    const url = `${this.apiUrl}/${collectionName}/records`;
+    return this.http.post(url, data);
+  }
+
+  updateRecord(collectionName: string, id: string, data: any): Observable<any> {
+    const url = `${this.apiUrl}/${collectionName}/records/${id}`;
+    return this.http.patch(url, data);
+  }
 }

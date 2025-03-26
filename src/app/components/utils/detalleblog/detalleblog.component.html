@@ -7,26 +7,69 @@
 
 <div class="container">
   <div class="blog-content">
-    <div class="imagen-principal">
-      <img [src]="imagenUrl" [alt]="blog?.titulo">
+    <div class="imagen-principal" *ngIf="imagenUrl">
+      <img [src]="imagenUrl" [alt]="blog?.titulo" (error)="imagenUrl = 'assets/images/default-blog.jpg'">
     </div>
     <div class="contenido">
       <div class="texto" [innerHTML]="blog?.cuerpo"></div>
     </div>
   </div>
 
-  <div class="compartir">
-    <h3>Comparte este artículo</h3>
-    <div class="redes-sociales">
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{currentUrl}}" target="_blank">
-        <i class="fa-brands fa-facebook"></i>
-      </a>
-      <a href="https://twitter.com/intent/tweet?url={{currentUrl}}&text={{blog?.titulo}}" target="_blank">
-        <i class="fa-brands fa-twitter"></i>
-      </a>
-      <a href="https://wa.me/?text={{blog?.titulo}} {{currentUrl}}" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
+  <div class="comentarios-section">
+    <h3>Comentarios</h3>
+    
+    <div class="comentarios-list" *ngIf="comments && comments.length > 0">
+      <div class="comentario" *ngFor="let comment of comments">
+        <div class="comentario-header">
+          <strong>{{ comment?.nombre }}</strong>
+          <span>{{ comment?.fecha | date:'dd MMM yyyy' }}</span>
+        </div>
+        <p>{{ comment?.comentario }}</p>
+      </div>
     </div>
+
+    <div class="no-comentarios" *ngIf="comments.length === 0">
+      <p>Sé el primero en comentar</p>
+    </div>
+
+    <div class="comentario-form">
+      <h4>Deja tu comentario</h4>
+      <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()">
+        <div class="form-group">
+          <input 
+            type="text" 
+            formControlName="nombre" 
+            placeholder="Tu nombre"
+            [class.invalid]="commentForm.get('nombre')?.invalid && commentForm.get('nombre')?.touched">
+        </div>
+        
+        <div class="form-group">
+          <textarea 
+            formControlName="comentario" 
+            placeholder="Tu comentario"
+            rows="4"
+            [class.invalid]="commentForm.get('comentario')?.invalid && commentForm.get('comentario')?.touched"></textarea>
+        </div>
+
+        <button type="submit" [disabled]="!commentForm.valid">
+          Publicar comentario
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="compartir">
+  <h3>Comparte este artículo</h3>
+  <div class="redes-sociales">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{currentUrl}}" target="_blank">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?url={{currentUrl}}&text={{blog?.titulo}}" target="_blank">
+      <i class="fa-brands fa-twitter"></i>
+    </a>
+    <a href="https://wa.me/?text={{blog?.titulo}} {{currentUrl}}" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
   </div>
 </div>

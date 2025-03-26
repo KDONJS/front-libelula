@@ -1,0 +1,78 @@
+Update (blog)
+Update a single blog record.
+
+Body parameters could be sent as application/json or multipart/form-data.
+
+File upload is supported only via multipart/form-data.
+For more info and examples you could check the detailed Files upload and handling docs .
+
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('https://admin.libelulahotel.com.pe');
+
+...
+
+// example update data
+const data = {
+    "titulo": "test",
+    "resumen": "test",
+    "comentarios": "JSON",
+    "cuerpo": "test"
+};
+
+const record = await pb.collection('blog').update('RECORD_ID', data);
+JavaScript SDK
+API details
+PATCH
+/api/collections/blog/records/:id
+
+Requires superuser Authorization:TOKEN header
+
+Path parameters
+id	String	ID of the record to update.
+Body Parameters
+Optional
+titulo
+String	Plain text value.
+Optional
+resumen
+String	Plain text value.
+Optional
+imagen
+File	File object.
+Set to null to delete already uploaded file(s).
+Optional
+comentarios
+String	JSON array or object.
+Optional
+cuerpo
+String	
+Query parameters
+expand	String	Auto expand relations when returning the updated record. Ex.:
+?expand=relField1,relField2.subRelField21
+Supports up to 6-levels depth nested relations expansion.
+The expanded relations will be appended to the record under the expand property (eg. "expand": {"relField1": {...}, ...}). Only the relations that the user has permissions to view will be expanded.
+fields	String	
+Comma separated string of the fields to return in the JSON response (by default returns all fields). Ex.:
+?fields=*,expand.relField.name
+
+* targets all keys from the specific depth level.
+
+In addition, the following field modifiers are also supported:
+
+:excerpt(maxLength, withEllipsis?)
+Returns a short plain text version of the field string value.
+Ex.: ?fields=*,description:excerpt(200,true)
+Responses
+{
+  "collectionId": "pbc_3877123827",
+  "collectionName": "blog",
+  "id": "test",
+  "titulo": "test",
+  "resumen": "test",
+  "imagen": "filename.jpg",
+  "comentarios": "JSON",
+  "cuerpo": "test",
+  "created": "2022-01-01 10:00:00.123Z",
+  "updated": "2022-01-01 10:00:00.123Z"
+}

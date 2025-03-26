@@ -3,6 +3,12 @@ import { HeroComponent } from "../utils/hero/hero.component";
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
 import { PocketbaseService } from '../../services/pocketbase.service';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { RatingModule } from 'primeng/rating';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -28,7 +34,13 @@ interface comentario{
     RouterLink,
     RouterLinkActive,
     CommonModule,
-    NgFor
+    NgFor,
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    InputTextareaModule,
+    RatingModule,
+    ReactiveFormsModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -46,11 +58,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     "titulo": "Bienvenidos"
   };
 
-  constructor(
-    private ngZone: NgZone, 
-    private cdr: ChangeDetectorRef,
-    private pocketBaseService: PocketbaseService
-  ) {}
 
   ngOnInit() {
     this.getComentariosData();
@@ -93,5 +100,52 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   nextComment() {
     this.currentIndex = (this.currentIndex + 1) % this.comentarios.length;
+  }
+
+  commentDialogVisible: boolean = false;
+  commentForm: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private ngZone: NgZone, 
+    private cdr: ChangeDetectorRef,
+    private pocketBaseService: PocketbaseService
+  ) {
+    this.commentForm = this.fb.group({
+      autor: ['', Validators.required],
+      pais: ['', Validators.required],
+      comentario: ['', Validators.required],
+      estrellas: [5, Validators.required]
+    });
+  }
+
+  openCommentDialog() {
+    this.commentDialogVisible = true;
+  }
+
+  onSubmitComment() {
+    if (this.commentForm.valid) {
+      const formData = {
+        ...this.commentForm.value,
+        fecha: new Date().toISOString()
+      };
+
+      this.pocketBaseService.createRecord(this.collectionName, formData).subscribe({
+        next: (response) => {
+          // Add the new comment to the list and reset form
+          this.comentarios.push(response);
+          this.commentForm.reset();
+          this.commentDialogVisible = false;
+          
+          // Recalculate average stars
+          this.estrellas = this.comentarios.reduce((acc, item) => 
+            acc + Number(item.estrellas), 0) / this.comentarios.length;
+        },
+        error: (error) => {
+          console.error('Error al guardar el comentario:', error);
+          // Here you could add error handling UI feedback
+        }
+      });
+    }
   }
 }

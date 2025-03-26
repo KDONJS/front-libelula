@@ -28,6 +28,9 @@
     <div class="comentarios">
       <div class="titulo">
         <h2>Comentarios de nuestros clientes</h2>
+        <button class="add-comment-btn" (click)="openCommentDialog()">
+          <i class="fa-solid fa-comment"></i> Dejar un comentario
+        </button>
       </div>
       <div class="carousel-container">
         <button class="nav-btn prev" (click)="prevComment()">❮</button>
@@ -51,3 +54,50 @@
     
   </div>
 </div>
+
+
+<p-dialog 
+  [(visible)]="commentDialogVisible" 
+  [modal]="true" 
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="comment-dialog"
+  [closeOnEscape]="true"
+  [dismissableMask]="true"
+  header="Comparte tu experiencia">
+  
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()">
+    <div class="form-group">
+      <label for="autor">Nombre</label>
+      <input id="autor" type="text" pInputText formControlName="autor">
+    </div>
+
+    <div class="form-group">
+      <label for="pais">País</label>
+      <input id="pais" type="text" pInputText formControlName="pais">
+    </div>
+
+    <div class="form-group">
+      <label for="comentario">Comentario</label>
+      <textarea id="comentario" rows="5" pInputTextarea formControlName="comentario"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Calificación</label>
+      <p-rating formControlName="estrellas" [stars]="5" [cancel]="false"></p-rating>
+    </div>
+
+    <div class="dialog-footer">
+      <p-button 
+        label="Cancelar" 
+        styleClass="p-button-text" 
+        (click)="commentDialogVisible = false">
+      </p-button>
+      <p-button 
+        label="Enviar comentario" 
+        type="submit" 
+        [disabled]="!commentForm.valid">
+      </p-button>
+    </div>
+  </form>
+</p-dialog>

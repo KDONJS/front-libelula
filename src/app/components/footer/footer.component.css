@@ -1,121 +1,267 @@
-footer{
+a{
+    text-decoration: none;
+}
+
+footer {
     background: var(--blue-zodiac-950);
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    color: var(--color-white);
+    border-radius: 3rem 3rem 0 0;
+    margin-top: 4rem;
+}
+
+.container-footer {
+    padding: 5rem 3rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    width: 90rem;
+    gap: 3rem;
+}
+
+.marca .logo {
+    margin-bottom: 2rem;
+}
+
+.marca .logo span {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.marca .logo p {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: var(--harvest-gold-600);
+    margin-top: -0.5rem;
+}
+
+.direccion {
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.direccion a {
+    color: var(--harvest-gold-600);
+    transition: all 0.3s ease;
+}
+
+.direccion a:hover {
     color: var(--color-white);
 }
-a{
-  text-decoration: none;
-  color: aliceblue;
+
+.menu {
+    padding-top: 1rem;
 }
 
-.container-footer{
-    padding: 4rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    width: 90rem;
-    gap: 2rem;
-}
-
-ul{
+.menu ul {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
-ul li{
+.menu ul li {
     list-style: none;
 }
 
-.redes li{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.redes li a{
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-}
-
-.container-footer .item{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.boletin{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-input::placeholder{
+.menu ul li a {
     color: var(--color-white);
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.5rem 0;
 }
 
-.boletin input{
-    border: solid 0.2rem var(--harvest-gold-600);
-    padding: 0.5rem 2rem;
-    background: var(--blue-zodiac-950);
-    color: var(--color-white);
-    border-radius: 0.3rem 0rem 0rem 0.3rem;
-}
-
-.boletin button{
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
     background: var(--harvest-gold-600);
-    border: solid 0.2rem var(--harvest-gold-600);
-    padding: 0.5rem;
-    border-radius: 0rem 0.3rem 0.3rem 0rem;
-    color: var(--color-white);
+    transition: width 0.3s ease;
 }
 
-.container-footer .marca .logo{
-    width: max-content;
-    align-items: center;
-    margin-bottom: 1.5rem;
+.menu ul li a:hover {
+    color: var(--harvest-gold-600);
+    transform: translateX(10px);
 }
 
-.container-footer .marca .logo span{
-    font-size: 2rem;
-}
-
-.container-footer .item .logo , .direccion, .marca{
-    display: flex;
-    flex-direction: column;
+.menu ul li a:hover::after {
+    width: 100%;
 }
 
 @media (max-width: 768px) {
-    .container-footer{
-        flex-direction: column;
-    }
-    .direccion, .menu{
-        text-align: center;
+    .menu {
+        padding: 2rem 0;
     }
 
-    .direccion, .menu, .redes {
-        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.26);
-        padding-bottom: 1rem;
-    }
-
-    .marca, .redes, .boletin{
+    .menu ul {
         align-items: center;
     }
 
+    .menu ul li a:hover {
+        transform: translateX(0);
+        color: var(--harvest-gold-600);
+    }
+}
+
+.redes {
+    padding-top: 1rem;
+}
+
+.redes ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.redes ul li {
+    list-style: none;
+}
+
+.redes ul li a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-white);
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.redes ul li a i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--harvest-gold-600);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.redes ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.redes ul li a:hover i {
+    transform: scale(1.2);
+    color: var(--harvest-gold-700);
+}
+
+@media (max-width: 768px) {
+    .redes {
+        padding: 2rem 0;
+    }
+
+    .redes ul {
+        align-items: center;
+    }
+
+    .redes ul li a {
+        min-width: 200px;
+        justify-content: center;
+    }
+
+    .redes ul li a:hover {
+        transform: translateY(-3px);
+    }
+}
+
+.boletin .slogan {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.boletin .formulario form {
+    display: flex;
+    gap: 0;
+}
+
+.boletin input {
+    border: 2px solid var(--harvest-gold-600);
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    border-radius: 0.5rem 0 0 0.5rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.boletin input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.boletin button {
+    background: var(--harvest-gold-600);
+    border: 2px solid var(--harvest-gold-600);
+    padding: 1rem 1.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boletin button:hover {
+    background: var(--harvest-gold-700);
+    border-color: var(--harvest-gold-700);
+}
+
+@media (max-width: 768px) {
+    footer {
+        border-radius: 2rem 2rem 0 0;
+        margin-top: 3rem;
+    }
+
+    .container-footer {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+        text-align: center;
+    }
+
+    .marca, .menu, .redes, .boletin {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .marca {
+        padding-top: 0;
+    }
+
     .boletin {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .menu ul li a {
+        padding-left: 0;
+    }
+
+    .menu ul li a:hover {
+        padding-left: 0;
+    }
+
+    .menu ul li a::before {
+        display: none;
+    }
+
+    .boletin .formulario form {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .boletin input,
+    .boletin button {
         width: 100%;
-        flex-direction: row;
+        border-radius: 0.5rem;
     }
-
-    .boletin input{
-        width: 50%;
-    }
-
-    .boletin button{
-        width: 20%;
-    }
-
 }

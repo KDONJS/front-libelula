@@ -167,7 +167,6 @@
 .comentarios {
   width: 90%;
   margin: 2rem auto;
-  overflow: hidden;
   position: relative;
   padding: 0rem 0;
 }
@@ -316,5 +315,126 @@
 
   .nav-btn.next {
     right: 0.5rem;
+  }
+}
+
+.titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.add-comment-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background: var(--harvest-gold-600);
+  color: white;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-comment-btn:hover {
+  background: var(--harvest-gold-700);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+:host ::ng-deep .comment-dialog {
+  max-width: 600px;
+  width: 90%;
+}
+
+:host ::ng-deep .comment-dialog .p-dialog-header {
+  background: var(--blue-zodiac-950);
+  color: white;
+  padding: 1.5rem 2rem;
+}
+
+:host ::ng-deep .comment-dialog .p-dialog-content {
+  padding: 2.5rem;
+  background: var(--color-white);
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--blue-zodiac-950);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid rgba(20, 39, 74, 0.1);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--harvest-gold-600);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(205, 164, 94, 0.1);
+}
+
+:host ::ng-deep .p-rating .p-rating-icon {
+  color: var(--harvest-gold-600);
+  font-size: 1.5rem;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(20, 39, 74, 0.1);
+}
+
+:host ::ng-deep .dialog-footer .p-button {
+  padding: 0.8rem 1.5rem;
+}
+
+:host ::ng-deep .dialog-footer .p-button-text {
+  color: var(--blue-zodiac-950);
+}
+
+:host ::ng-deep .dialog-footer .p-button:not(.p-button-text) {
+  background: var(--harvest-gold-600);
+  border-color: var(--harvest-gold-600);
+}
+
+:host ::ng-deep .dialog-footer .p-button:not(.p-button-text):hover {
+  background: var(--harvest-gold-700);
+  border-color: var(--harvest-gold-700);
+}
+
+@media (max-width: 768px) {
+  .titulo {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  :host ::ng-deep .comment-dialog {
+    width: 95%;
+  }
+
+  :host ::ng-deep .comment-dialog .p-dialog-content {
+    padding: 1.5rem;
   }
 }
