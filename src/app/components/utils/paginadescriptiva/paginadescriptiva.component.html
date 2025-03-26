@@ -16,7 +16,11 @@
         <ul>
           <li *ngFor="let item of descripcionItems">{{ item }}</li>
         </ul>
-        <a class="reserva" href=""><i class="fa-brands fa-whatsapp"></i>Reservar {{habitacion.tipo}}</a>
+        <a class="reserva" 
+           [href]="'https://wa.me/' + habitacion.numero_celular + '?text=Hola, estoy interesado en reservar la habitación ' + habitacion.tipo" 
+           target="_blank">
+          <i class="fa-brands fa-whatsapp"></i>Reservar {{habitacion.tipo}}
+        </a>
     </div>
   </div>
 </div>

@@ -18,7 +18,11 @@
       </div>
       <div class="acciones">
         <a class="detalle" [routerLink]="['detalle', Habitacion.id]"><i class="fa-solid fa-circle-plus"></i>VER DETALLES DE LA HABITACIÓN</a>
-        <a class="reserva" href=""><i class="fa-brands fa-whatsapp"></i>Reservar</a>
+        <a class="reserva" 
+           [href]="'https://wa.me/' + Habitacion.numero_celular + '?text=Hola, estoy interesado en la habitación ' + Habitacion.tipo" 
+           target="_blank">
+          <i class="fa-brands fa-whatsapp"></i>Reservar
+        </a>
       </div>
     </div>
   </div>
