@@ -11,7 +11,7 @@
   <div class="habitaciones">
     <div data-aos="zoom-in-up" class="habitacion" *ngFor="let Habitacion of habitaciones">
       <div class="imagen">
-        <img src="https://admin.libelulahotel.com.pe/api/files/{{Habitacion.collectionId}}/{{Habitacion.id}}/{{Habitacion.imagenes[0]}}" alt="{{Habitacion.tipo}}">
+        <img [src]="Habitacion.imagenUrl" [alt]="'Habitación tipo ' + Habitacion.tipo" />
       </div>
       <div class="tipo">
         <span>{{Habitacion.tipo}}</span>

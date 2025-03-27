@@ -9,7 +9,7 @@
   <div class="blogs">
     <div class="blog" *ngFor="let blog of blogs" data-aos="fade-up">
       <div class="imagen">
-        <img [src]="'https://admin.libelulahotel.com.pe/api/files/' + blog.collectionId + '/' + blog.id + '/' + blog.imagen" [alt]="blog.titulo">
+        <img *ngIf="blog.imagenUrl" [src]="blog.imagenUrl" [alt]="blog.titulo" />
       </div>
       <div class="info">
         <div class="fecha">

@@ -12,6 +12,7 @@ interface Razones {
   contenido: string;
   imagen: number;
   updated: string;
+  imagenUrl?: string; 
 }
 
 @Component({
@@ -35,17 +36,19 @@ export class TarifaComponent {
     this.getHeroData();
   }
 
-  private getHeroData(): void {
-    this.pocketBaseService.getCollection(this.collectionName).subscribe({
-      next: (response) => {
-        this.razones = response.items.find(
-          (item: Razones) => item.name === this.titulo
-        ) || null; // Si no encuentra nada, asigna `null`
-      },
-      error: (error) => {
-        console.error('Error obteniendo datos:', error);
-        this.razones = null; // Manejar el error y evitar undefined
-      },
-    });
+  private async getHeroData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.collectionName);
+      const resultado = response.find((item: Razones) => item.name === this.titulo);
+
+      if (resultado) {
+        resultado.imagenUrl = this.pocketBaseService.getFileUrl(resultado, resultado.imagen);
+      }
+
+      this.razones = resultado || null;
+    } catch (error) {
+      console.error('Error obteniendo datos:', error);
+      this.razones = null;
+    }
   }
 }

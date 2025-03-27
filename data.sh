@@ -1,0 +1,13 @@
+sed -i.bu "s|<baseUrl>|$(CLAIMJURL-DEV)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/.env"
+sed -i.bu "s|<clientId>|$(APP-NAME)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/.env"
+sed -i.bu "s|<clientSecret>|$(ASSAVIAL-CLIENT-SECRET)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/.env"
+sed -i.bu "s|<applicationKey>|$(API-APPLICATION-KEY-DEV)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/.env"
+sed -i.bu "s|<baseUrlAuthentication>|$(AUTHENTICATIONMSURL-DEV)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/.env"
+sed -i.bu "s|<APK_ANALYTICS>|$(APK-ANALYTICS-DEV)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/android/app/src/main/assets/appcenter-config.json"
+sed -i.bu "s|<APK_ANALYTICS>|$(IOS-ANALYTICS-DEV)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/ios/AssaVial/AppCenter-Config.plist"
+sed -i.bu "s|<BUILDID>|$(BUILD)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/android/app/src/main/AndroidManifest.xml"
+sed -i.bu "s|<EMULATOR_ALLOWED>|true|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/.env"
+sed -i.bu "s|<baseUrlSales>|https://apidev.assanet.com/sales-journey-ms/|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/.env"
+
+sed -i.bu "s|<APP_ID>|$(APP_ID)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/android/app/build.gradle"
+sed -i.bu "s|<TESTERS_GROUP>|$(TESTERS_GROUP)|g" "$(System.DefaultWorkingDirectory)/Artifact/Project/$(Build.Repository.Name)/android/app/build.gradle"

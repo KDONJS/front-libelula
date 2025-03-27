@@ -63,14 +63,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getComentariosData();
   }
 
-  private getComentariosData(): void {
-    this.pocketBaseService.getCollection(this.collectionName).subscribe({
-      next: (response) => {
-        this.comentarios = response.items as comentario[];
-        this.estrellas = this.comentarios.reduce((acc, item) => acc + Number(item.estrellas), 0) / this.comentarios.length;
-        this.startAutoplay();
-      }
-    });
+  private async getComentariosData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.collectionName);
+      this.comentarios = response as comentario[];
+      this.estrellas = this.comentarios.reduce((acc, item) => acc + Number(item.estrellas), 0) / this.comentarios.length;
+      this.startAutoplay();
+    } catch (error) {
+      console.error('Error obteniendo comentarios:', error);
+      this.comentarios = [];
+    }
   }
 
   ngOnDestroy() {

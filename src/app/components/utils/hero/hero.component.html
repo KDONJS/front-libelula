@@ -14,7 +14,7 @@
   }
 </style>
 <div class="hero"
-[style.background-image]="'linear-gradient(#14274ad2, rgba(48, 44, 58, 0.521)), url(https://admin.libelulahotel.com.pe/api/files/'+ heroItem?.collectionId + '/' + heroItem?.id + '/' + heroItem?.image + ')'"
+[style.background-image]="backgroundImage"
 >
     <div class="texto" *ngIf="titulo !== 'BLog'">
         <span class="item-hero-1" [ngClass]="titulo === 'Bienvenidos' ? '' : 'clase-activa'">{{ heroItem?.name_pagina }}</span>

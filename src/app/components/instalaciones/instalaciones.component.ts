@@ -14,6 +14,7 @@ interface Instalacion {
   imagen: string;
   detalle: string;
   updated: string;
+  imagenUrl?: string;
 }
 
 @Component({
@@ -50,16 +51,17 @@ export class InstalacionesComponent {
     this.getHeroData();
   }
 
-  private getHeroData(): void {
-    this.pocketBaseService.getCollection(this.collectionName).subscribe({
-      next: (response) => {
-        this.instalaciones = response.items as Instalacion[]; // Asegurar el tipo correcto
-      },
-      error: (error) => {
-        console.error('Error obteniendo datos:', error);
-        this.instalaciones = [];
-      },
-    });
+  private async getHeroData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.collectionName);
+      this.instalaciones = response.map((item: Instalacion) => ({
+        ...item,
+        imagenUrl: this.pocketBaseService.getFileUrl(item, item.imagen)
+      }));
+    } catch (error) {
+      console.error('Error obteniendo datos:', error);
+      this.instalaciones = [];
+    }
   }
 
 openDialog(instalacion: Instalacion) {

@@ -14,6 +14,7 @@ interface Habitacion {
   numero_celular: string;
   tipo: number;
   updated: string;
+  imagenUrl?: string;
 }
 
 @Component({
@@ -43,16 +44,19 @@ export class HabitacionesComponent {
     this.getHabitacionesData();
   }
 
-  private getHabitacionesData(): void {
-    this.pocketBaseService.getCollection(this.collectionName).subscribe({
-      next: (response) => {
-        this.habitaciones = response.items as Habitacion[]; // Asegurar el tipo correcto
-      },
-      error: (error) => {
-        console.error('Error obteniendo datos:', error);
-        this.habitaciones = [];
-      },
-    });
+  private async getHabitacionesData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.collectionName);
+      this.habitaciones = response.map((item: Habitacion) => ({
+        ...item,
+        imagenUrl: item.imagenes?.length
+        ? this.pocketBaseService.getFileUrl(item, item.imagenes[0])
+        : undefined
+      }));
+    } catch (error) {
+      console.error('Error obteniendo habitaciones:', error);
+      this.habitaciones = [];
+    }
   }
 
 }

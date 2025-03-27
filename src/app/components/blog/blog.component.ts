@@ -15,6 +15,7 @@ interface Blog {
   comentarios: string;
   created: string;
   updated: string;
+  imagenUrl?: string;
 }
 
 @Component({
@@ -43,15 +44,16 @@ export class BlogComponent implements OnInit {
     this.getBlogsData();
   }
 
-  private getBlogsData(): void {
-    this.pocketBaseService.getCollection(this.collectionName).subscribe({
-      next: (response) => {
-        this.blogs = response.items as Blog[];
-      },
-      error: (error) => {
-        console.error('Error fetching blog data:', error);
-        this.blogs = [];
-      },
-    });
+  private async getBlogsData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.collectionName);
+      this.blogs = response.map((item: Blog) => ({
+        ...item,
+        imagenUrl: this.pocketBaseService.getFileUrl(item, item.imagen)
+      }));
+    } catch (error) {
+      console.error('Error fetching blog data:', error);
+      this.blogs = [];
+    }
   }
 }

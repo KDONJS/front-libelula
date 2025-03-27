@@ -32,6 +32,7 @@ export class HeroComponent implements OnInit{
 
   heroItem?: HeroItem | null = null;
   whatsappLink: string = '';
+  backgroundImage: string = '';
 
   constructor(private pocketBaseService: PocketbaseService) {}
 
@@ -39,22 +40,27 @@ export class HeroComponent implements OnInit{
     this.getHeroData();
   }
 
-  private getHeroData(): void {
-    this.pocketBaseService.getCollection(this.collectionName).subscribe({
-      next: (response) => {
-        this.heroItem = response.items.find(
-          (item: HeroItem) => item.name_pagina === this.titulo
-        ) || null;
+  private async getHeroData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.collectionName);
+      this.heroItem =
+        response.find((item: HeroItem) => item.name_pagina === this.titulo) || null;
 
-        if (this.heroItem?.numero_reserva) {
+      if (this.heroItem) {
+        this.setBackgroundImage(this.heroItem);
+        if (this.heroItem.numero_reserva) {
           this.generarWhatsAppLink(this.heroItem.numero_reserva);
         }
-      },
-      error: (error) => {
-        console.error('Error obteniendo datos:', error);
-        this.heroItem = null;
-      },
-    });
+      }
+    } catch (error) {
+      console.error('Error obteniendo datos:', error);
+      this.heroItem = null;
+    }
+  }
+
+  private setBackgroundImage(heroItem: HeroItem): void {
+    const imageUrl = this.pocketBaseService.getFileUrl(heroItem, heroItem.image);
+    this.backgroundImage = `linear-gradient(#14274ad2, rgba(48, 44, 58, 0.521)), url(${imageUrl})`;
   }
 
   private generarWhatsAppLink(numero: number): void {

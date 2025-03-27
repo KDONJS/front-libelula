@@ -4,9 +4,11 @@
       <h3>{{ razones?.titulo }}</h3>
       <span>{{ razones?.contenido }}</span>
     </div>
-    <div class="imagen"
-    [style.background-image]="'url(https://admin.libelulahotel.com.pe/api/files/'+ razones?.collectionId + '/' + razones?.id + '/' + razones?.imagen + ')'"
-    >
-    </div>
+    <div
+    class="imagen"
+    *ngIf="razones?.imagenUrl"
+    [style.background-image]="'url(' + razones?.imagenUrl + ')'"
+  >
+  </div>
   </div>
 </div>

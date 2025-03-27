@@ -36,16 +36,14 @@ export class FooterComponent {
     this.getSocialData();
   }
 
-  private getSocialData(): void {
-    this.pocketBaseService.getCollection(this.collectionName).subscribe({
-      next: (response) => {
-        this.redsocial = response.items as social[];
-      },
-      error: (error) => {
-        console.error('Error obteniendo datos:', error);
-        this.redsocial = [];
-      },
-    });
+  private async getSocialData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.collectionName);
+      this.redsocial = response as social[];
+    } catch (error) {
+      console.error('Error obteniendo datos:', error);
+      this.redsocial = [];
+    }
   }
 
 }
