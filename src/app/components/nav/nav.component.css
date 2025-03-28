@@ -26,7 +26,7 @@ nav {
     background-color: var(--black-950);
     padding: 2rem 1.5rem;
     display: flex;
-    height: 7rem;
+    height: 8rem;
     justify-content: center;
     align-items: center;
     border-radius: 0 0 1.5rem 1.5rem;
@@ -46,9 +46,9 @@ nav {
 }
 
 .logo a .img-logo {
-    width: 6rem;
+    margin-top: 1rem;
+    width: 7rem;
     height: auto;
-    filter: drop-shadow(0rem 0rem 0.8rem var(--black-900));
     transition: filter 0.3s ease;
 }
 

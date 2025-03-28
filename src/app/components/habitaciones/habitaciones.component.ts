@@ -17,14 +17,18 @@ interface Habitacion {
   imagenUrl?: string;
 }
 
+interface Pagina {
+  page: string;
+  resumen: string;
+  id: string;
+  created: string;
+  updated: string;
+}
+
 @Component({
   selector: 'app-habitaciones',
   standalone: true,
-  imports: [
-    HeroComponent,
-    CommonModule,
-    RouterLink
-  ],
+  imports: [HeroComponent, CommonModule, RouterLink],
   templateUrl: './habitaciones.component.html',
   styleUrl: './habitaciones.component.css'
 })
@@ -35,13 +39,15 @@ export class HabitacionesComponent {
   }
 
   collectionName: string = 'habitaciones';
-
-  habitaciones: Habitacion[] = []; // Inicializar como un array vacío
+  paginasCollection: string = 'paginas';
+  habitaciones: Habitacion[] = [];
+  paginaData: Pagina | null = null;
 
   constructor(private pocketBaseService: PocketbaseService) {}
 
   ngOnInit(): void {
     this.getHabitacionesData();
+    this.getPaginaData();
   }
 
   private async getHabitacionesData(): Promise<void> {
@@ -59,4 +65,18 @@ export class HabitacionesComponent {
     }
   }
 
+  private async getPaginaData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.paginasCollection);
+      // Filter for page with "habitaciones" value
+      const habitacionesPage = response.find((item: Pagina) => item.page === "habitaciones");
+      if (habitacionesPage) {
+        this.paginaData = habitacionesPage;
+        this.hero.mensaje = habitacionesPage.resumen; // Update hero message with page resumen
+      }
+    } catch (error) {
+      console.error('Error obteniendo datos de página:', error);
+      this.paginaData = null;
+    }
+  }
 }

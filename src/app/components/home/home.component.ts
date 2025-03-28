@@ -25,6 +25,14 @@ interface comentario{
   updated: string
 }
 
+interface Pagina {
+  page: string;
+  resumen: string;
+  id: string;
+  created: string;
+  updated: string;
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -50,8 +58,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentIndex: number = 0;
   autoplayInterval: any;
   collectionName: string = 'comentarios_estadia';
+  paginasCollection: string = 'paginas';
   comentarios: comentario[] = [];
   estrellas: number = 0;
+  paginaData: Pagina | null = null;
 
   hero = {
     "mensaje": "",
@@ -61,6 +71,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getComentariosData();
+    this.getPaginaData();
   }
 
   private async getComentariosData(): Promise<void> {
@@ -72,6 +83,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     } catch (error) {
       console.error('Error obteniendo comentarios:', error);
       this.comentarios = [];
+    }
+  }
+
+  private async getPaginaData(): Promise<void> {
+    try {
+      const response = await this.pocketBaseService.getCollection(this.paginasCollection);
+      // Filter for page with "habitaciones" value
+      const homePage = response.find((item: Pagina) => item.page === "home");
+      if (homePage) {
+        this.paginaData = homePage;
+        this.hero.mensaje = homePage.resumen; // Update hero message with page resumen
+      }
+    } catch (error) {
+      console.error('Error obteniendo datos de página:', error);
+      this.paginaData = null;
     }
   }
 

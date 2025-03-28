@@ -1,6 +1,7 @@
 import { Component,  Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PocketbaseService } from '../../../services/pocketbase.service';
+import { RouterLink } from '@angular/router';
 
 interface HeroItem {
   collectionId: string;
@@ -18,7 +19,8 @@ interface HeroItem {
   selector: 'app-hero',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'

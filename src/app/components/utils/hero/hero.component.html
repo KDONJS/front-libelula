@@ -19,13 +19,13 @@
     <div class="texto" *ngIf="titulo !== 'BLog'">
         <span class="item-hero-1" [ngClass]="titulo === 'Bienvenidos' ? '' : 'clase-activa'">{{ heroItem?.name_pagina }}</span>
         @if (titulo === 'Bienvenidos') {
-          <span class="item-hero-2">Libelula</span>
+          <span class="item-hero-2">Libélula</span>
           <span class="item-hero-3">Hotel</span>
         }
         <span class="item-hero-4">{{ heroItem?.mensaje_bienvenida }}</span>
     </div>
-    <div class="boton" *ngIf="titulo !== 'BLog'">
-      <a [href]="whatsappLink" target="_blank">
+    <div class="boton" *ngIf="titulo !== 'BLog' && titulo !== 'Habitaciones'">
+      <a routerLink="/Habitaciones">
         <i class="fa-solid fa-calendar-day"></i> RESERVA AHORA
       </a>
     </div>
